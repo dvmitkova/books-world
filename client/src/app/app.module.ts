@@ -9,6 +9,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { TitleComponent } from './components/partials/title/title.component';
 import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AuthComponent } from './auth/auth.component';
     HomeComponent,
     TitleComponent,
     AuthComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
