@@ -8,12 +8,14 @@ import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TitleComponent } from './components/partials/title/title.component';
 import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TitleComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
