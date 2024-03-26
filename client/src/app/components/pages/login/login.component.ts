@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private userService: UserService, private router: Router) {}
 
+  login(form: NgForm) {
+    if (form.invalid) {
+      return;
+    }
+
+    const { email, password } = form.value;
+
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/home'])
+    })
+  }
 }

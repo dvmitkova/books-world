@@ -5,24 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { HomeComponent } from './components/pages/home/home/home.component';
-import { LoginComponent } from './components/pages/login/login/login.component';
-import { RegisterComponent } from './components/pages/register/register.component';
-import { ProfileComponent } from './components/pages/profile/profile.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { TitleComponent } from './components/partials/title/title.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
+    TitleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     CoreModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
