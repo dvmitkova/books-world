@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="login" #form="ngForm" (ngSubmit)="login(form)">
+  <form class="login" #form="ngForm" >
     <h2>Login Form</h2>
 
     <p class="field field-icon">
@@ -20,40 +20,41 @@
         <p class="error" *ngIf="inputEmail.errors?.['required']">
             Email is required!
         </p>
-        <!-- ! Implement email-validation logic!!! -->
-    </ng-container>
-
-    <p class="field field-icon">
-        <label for="password"></label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="************"
-          ngModel
-          #inputPassword="ngModel"
-          required
-          minlength="8"
-        />
-      </p>
-
-      <ng-container *ngIf="inputPassword.touched">
-        <p class="error" *ngIf="inputPassword.errors?.['required']">
-          Password is required!
-        </p>
-        <p class="error" *ngIf="inputPassword.errors?.['minlength']">
-          Password must be at least 8 characters!
-        </p>
+        ! Implement email-validation logic!!! 
       </ng-container>
 
-      <button [disabled]="form.invalid" 
-      [style]="{backgroundColor: form.invalid ? 'grey' : 'blue'}">
-        Login
-      </button>
-
-      <p class="text-center">
-        Have an account?
-        <a routerLink="/register">Register</a>
-      </p>
-  </form>
-</div>
+      <p class="field field-icon">
+          <label for="password"></label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="************"
+            ngModel
+            #inputPassword="ngModel"
+            required
+            minlength="8"
+          />
+        </p>
+  
+        <ng-container *ngIf="inputPassword.touched">
+          <p class="error" *ngIf="inputPassword.errors?.['required']">
+            Password is required!
+          </p>
+          <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+            Password must be at least 8 characters!
+          </p>
+        </ng-container>
+  
+        <button [disabled]="form.invalid" 
+        [style]="{backgroundColor: form.invalid ? 'grey' : 'blue'}">
+          Login
+        </button>
+  
+        <p class="text-center">
+          Have an account?
+          <a routerLink="/register">Register</a>
+        </p>
+    </form>
+  </div>
+  

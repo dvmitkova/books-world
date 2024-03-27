@@ -1,19 +1,58 @@
 footer {
-    background: #dab793;
-
-    margin-top: 1em;
     position: absolute;
     bottom: 0;
     width: 100%;
-}
-
-footer p {
-    margin: 0;
+    background: #dab793;
+    padding: 20px 0;
+    font-weight: 500;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; 
+  }
+  
+  .quote {
+    flex: 1;
+    align-self: flex-start; 
+    text-align: left;
+    display: inline-block;
+  }
+  
+  .quote p {
+    font-size: 1rem;
+  }
+  
+  .contacts,
+  .menu {
+    flex: 1;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
     padding: 0;
-    font-size: 0.7em;
-    text-align: center;
-}
-
-footer span {
-    font-size: 1.5em;
-}
+  }
+  
+  ul li {
+    margin-bottom: 5px;
+  }
+  
+  ul li a {
+    color: #0f1d28;
+    text-decoration: none;
+  }
+  
+  ul li a:hover {
+    background: #94765a;
+    color: white;
+    cursor: pointer;
+  }

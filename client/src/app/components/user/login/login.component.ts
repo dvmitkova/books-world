@@ -9,17 +9,17 @@ import { UserService } from 'src/app/components/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  // constructor(private userService: UserService, private router: Router) {}
 
-  login(form: NgForm) {
-    if (form.invalid) {
-      return;
-    }
+  // login(form: NgForm) {
+  //   if (form.invalid) {
+  //     return;
+  //   }
 
-    const { email, password } = form.value;
+  //   const { email, password } = form.value;
 
-    this.userService.login(email, password).subscribe(() => {
-      this.router.navigate(['/home'])
-    })
-  }
+  //   this.userService.login(email, password).subscribe(() => {
+  //     this.router.navigate(['/home'])
+  //   })
+  // }
 }
