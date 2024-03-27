@@ -1,20 +1,9 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .homepage-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .quote {
-    text-align: center;
-  }
-  
-  .quote p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
+.recently-added-section {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 130px;
+  background-color: var(--secondary-color);
+}
+.text {
+  color: var(--body-text-color);
+}

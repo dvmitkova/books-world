@@ -3,7 +3,6 @@ footer {
   padding: 15px;
   background-color: var(--header-footer-color);
   bottom: 0;
-  position: fixed;
   width: 100%;
 }
 
