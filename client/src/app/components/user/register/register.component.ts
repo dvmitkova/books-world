@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { matchPasswordsValidator } from 'src/app/shared/utils/match-passwords';
 
 @Component({
   selector: 'app-register',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
 
 }

@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { UserModule } from './components/user/user.module';
+import { CatalogComponent } from './components/pages/catalog/catalog.component';
+import { ContactsComponent } from './components/pages/contacts/contacts.component';
+import { DeliveryComponent } from './components/pages/delivery/delivery.component';
+import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { UserModule } from './components/user/user.module';
     HomeComponent,
     AuthComponent,
     NotFoundComponent,
+    CatalogComponent,
+    ContactsComponent,
+    DeliveryComponent,
+    HowItWorksComponent,
   ],
   imports: [
     BrowserModule,
