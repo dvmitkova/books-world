@@ -14,6 +14,7 @@ import { CatalogComponent } from './components/pages/catalog/catalog.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
 import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
+import { BookCardComponent } from './components/layouts/book-card/book-card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HowItWorksComponent } from './components/pages/how-it-works/how-it-work
     ContactsComponent,
     DeliveryComponent,
     HowItWorksComponent,
+    BookCardComponent,
   ],
   imports: [
     BrowserModule,

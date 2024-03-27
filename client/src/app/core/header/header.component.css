@@ -1,11 +1,21 @@
 header {
-  height: 100px;
+  height: 80px; /* Adjust height as needed */
+  position: fixed;
+  width: 100%;
+  background-color: var(--secondary-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .site-logo {
-  padding: 5px 20px;
-  border-radius: 20px;
-  background-color: var(--secondary-color);
   color: var(--body-text-color);
-  font-size: 1.5em;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
 }
