@@ -1,70 +1,7 @@
-header {
-    position: relative;
-    background: #dab793;
-    padding: 0;
-    font-weight: 500;
-  }
-  
-  a {
-    color: #0f1d28;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    background: #94765a;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-
-  a.logo {
-    font-weight: 800;
-    padding: 1rem;
-    font-size: 1.2rem;
-  }
-  
-  ul {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-  }
-  
-  ul a {
-    padding: 1rem;
-    display: inline-block;
-  }
-  
-  a span {
-    background: #0f1d28;
-    color: white;
-    padding: 0.1rem 0.45rem 0.2rem 0.45rem;
-    border-radius: 100rem;
-    font-size: 0.9rem;
-  }
-  
-  .merch-container {
-    position: relative;
-  }
-  
-  .merch {
-    position: absolute;
-    z-index: 1;
-    background: #ad9db8;
-    display: none;
-  }
-  
-  .merch-container:hover .merch {
-    display: block;
-  }
-  
-  .merch a {
-    width: 100%;
-    min-width: 8rem;
-  }
-  
+.site-logo {
+  padding: 5px 20px;
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+  color: var(--body-text-color);
+  font-size: 1.5em;
+}
