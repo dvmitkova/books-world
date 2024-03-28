@@ -1,9 +1,9 @@
 footer {
   height: 130px;
   padding: 15px;
-  background-color: var(--header-footer-color);
-  bottom: 0;
+  background-color: var(--navbar-footer-color);
   width: 100%;
+  bottom: 0%;
 }
 
 .site-logo{
@@ -16,4 +16,8 @@ footer {
 
 .nav-link{
   color: var(--body-text-color)
+}
+
+.copyright {
+  color: var(--body-text-color);
 }

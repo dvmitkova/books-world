@@ -15,6 +15,7 @@ import { ContactsComponent } from './components/pages/contacts/contacts.componen
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
 import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
 import { BookCardComponent } from './components/layouts/book-card/book-card.component';
+import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BookCardComponent } from './components/layouts/book-card/book-card.comp
     DeliveryComponent,
     HowItWorksComponent,
     BookCardComponent,
+    SearchCardComponent,
   ],
   imports: [
     BrowserModule,

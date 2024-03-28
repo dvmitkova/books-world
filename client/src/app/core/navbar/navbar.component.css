@@ -1,7 +1,7 @@
 nav {
     margin-top: 90px;
     height: 60px;
-    background-color: var(--navbar-color);
+    background-color: var(--navbar-footer-color);
 }
 
 .nav-link {

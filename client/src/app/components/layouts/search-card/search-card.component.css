@@ -1,0 +1,29 @@
+.search-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(135, 97, 59, 0.196);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-card input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+  
+  .search-card button {
+    background-color: var(--secondary-color);
+    color: var(--body-text-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .search-card button:hover {
+    background-color: var(--primary-color);
+  }
