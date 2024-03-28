@@ -16,6 +16,8 @@ import { DeliveryComponent } from './components/pages/delivery/delivery.componen
 import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
 import { BookCardComponent } from './components/layouts/book-card/book-card.component';
 import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
+import { AllBooksSectionComponent } from './components/layouts/all-books-section/all-books-section.component';
+import { WishlistBooksSectionComponent } from './components/layouts/wishlist-books-section/wishlist-books-section.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { SearchCardComponent } from './components/layouts/search-card/search-car
     HowItWorksComponent,
     BookCardComponent,
     SearchCardComponent,
+    AllBooksSectionComponent,
+    WishlistBooksSectionComponent,
   ],
   imports: [
     BrowserModule,
