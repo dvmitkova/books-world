@@ -18,6 +18,9 @@ import { BookCardComponent } from './components/layouts/book-card/book-card.comp
 import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
 import { AllBooksSectionComponent } from './components/layouts/all-books-section/all-books-section.component';
 import { WishlistBooksSectionComponent } from './components/layouts/wishlist-books-section/wishlist-books-section.component';
+import { RecentlyAddedSectionComponent } from './components/layouts/recently-added-section/recently-added-section.component';
+import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
+import { CommentFormComponent } from './components/layouts/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { WishlistBooksSectionComponent } from './components/layouts/wishlist-boo
     SearchCardComponent,
     AllBooksSectionComponent,
     WishlistBooksSectionComponent,
+    RecentlyAddedSectionComponent,
+    SingleBookSectionComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

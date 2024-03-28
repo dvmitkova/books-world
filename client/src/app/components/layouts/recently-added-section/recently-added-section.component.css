@@ -1,0 +1,10 @@
+.recently-added-section {
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 130px;
+    background-color: var(--secondary-color);
+  }
+  .text {
+    color: var(--body-text-color);
+  }
+  

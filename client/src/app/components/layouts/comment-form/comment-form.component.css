@@ -1,0 +1,5 @@
+.btn{
+    background-color: var(--primary-color);
+    border: none;
+    margin-top: 5px;
+}
