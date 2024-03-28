@@ -16,3 +16,7 @@ body {
   font-style: normal;
   color: var(--body-text-color);
 }
+
+.bg-theme{
+  background-color: var(--secondary-color);
+}
