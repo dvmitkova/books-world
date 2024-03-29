@@ -1,0 +1,11 @@
+.container{
+    margin-top: 200px;
+}
+
+.card{
+    height: 120px;
+}
+
+.card-body{
+    color: var(--body-text-color);
+}

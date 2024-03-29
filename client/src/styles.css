@@ -26,8 +26,17 @@ body {
   background-color: var(--dark-color);
 }
 
+.bg-profile-card-theme{
+  background-color: var(--light-color);
+  color: var(--body-text-color);
+}
+
 .text-theme-primary{
   color: var(--dark-color)
+}
+
+.text-theme-dark{
+  color: var(--body-text-color);
 }
 
 .shadow-effect{
