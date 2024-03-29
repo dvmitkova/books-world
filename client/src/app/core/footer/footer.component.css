@@ -9,7 +9,7 @@ footer {
 .site-logo{
   padding: 5px 20px;
   border-radius: 20px;
-  background-color: var(--secondary-color);
+  background-color: var(--light-color);
   color: var(--body-text-color);
   font-size: 1.2em;
 }

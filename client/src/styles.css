@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 :root {
-  --primary-color: #d0ab7c;
-  --secondary-color: #ddc8a0;
+  --dark-color: #d0ab7c;
+  --light-color: #ddc8a0;
   --body-text-color: #6b5b4a;
   --navbar-footer-color: #d0ab7c;
 }
@@ -18,7 +18,15 @@ body {
 }
 
 .bg-theme{
-  background-color: var(--secondary-color);
+  background-color: var(--light-color);
+}
+
+.bg-secondary-theme{
+  background-color: var(--dark-color);
+}
+
+.text-theme-primary{
+  color: var(--dark-color)
 }
 
 .shadow-effect{
@@ -34,7 +42,7 @@ input[type = text], input[type = email] {
 }
 
 .btn-theme{
-  background-color: var(--secondary-color);
+  background-color: var(--light-color);
   color: var(--body-text-color);
   border: none;
   padding: 8px 15px;
@@ -43,5 +51,5 @@ input[type = text], input[type = email] {
 }
 
 .btn-theme:hover {
-  background-color: var(--primary-color);
+  background-color: var(--dark-color);
 }

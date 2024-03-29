@@ -2,7 +2,7 @@ header {
   height: 90px;
   position: fixed;
   width: 100%;
-  background-color: var(--secondary-color);
+  background-color: var(--light-color);
 }
 
 .container {

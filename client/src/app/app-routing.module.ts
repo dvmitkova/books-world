@@ -6,15 +6,15 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { CatalogComponent } from './components/pages/catalog/catalog.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
-import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', component: HomeComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'single-book', component: SingleBookSectionComponent},
-  {path: 'about', component: HowItWorksComponent},
+  {path: 'about', component: AboutUsComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'delivery', component: DeliveryComponent},
   {path: 'auth', loadChildren: () => import('./components/user/user.module').then((m) => m.UserModule)},

@@ -10,13 +10,13 @@
   .search-card input {
     flex: 1;
     padding: 8px;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--light-color);
     border-radius: 3px;
     margin-right: 10px;
   }
   
   .search-card button {
-    background-color: var(--secondary-color);
+    background-color: var(--light-color);
     color: var(--body-text-color);
     border: none;
     padding: 8px 15px;
@@ -25,5 +25,5 @@
   }
   
   .search-card button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--dark-color);
   }

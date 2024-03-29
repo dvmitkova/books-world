@@ -23,6 +23,7 @@ import { SingleBookSectionComponent } from './components/pages/single-book/singl
 import { OfferFormComponent } from './components/layouts/offer-form/offer-form.component';
 import { SingleOfferComponent } from './components/layouts/single-offer/single-offer.component';
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { OffersListSectionComponent } from './components/layouts/offers-list-sec
     SingleBookSectionComponent,
     OfferFormComponent,
     OffersListSectionComponent,
-    SingleOfferComponent
+    SingleOfferComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
