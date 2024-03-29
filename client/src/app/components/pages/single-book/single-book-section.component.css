@@ -1,0 +1,7 @@
+.ml-custom {
+    margin-left: 10px;
+  }
+
+  .card-body{
+    color: var(--body-text-color);
+}

@@ -1,0 +1,11 @@
+.card-body{
+    color: var(--body-text-color);
+}
+
+.condition-input{
+    font-size: 13px;
+}
+
+.points-input{
+    font-size: 13px;
+}

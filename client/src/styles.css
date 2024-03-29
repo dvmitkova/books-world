@@ -23,5 +23,25 @@ body {
 
 .shadow-effect{
   border: none;
-  box-shadow: 10px 10px 30px 2px rgba(123, 98, 80, 0.3);
+  box-shadow: 5px 5px 10px 2px rgba(123, 98, 80, 0.162);
+}
+
+input[type = text], input[type = email] {
+  height: 60px;
+  padding-left: 20px;
+  font-size: 13px;
+  width: 100%
+}
+
+.btn-theme{
+  background-color: var(--secondary-color);
+  color: var(--body-text-color);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-theme:hover {
+  background-color: var(--primary-color);
 }

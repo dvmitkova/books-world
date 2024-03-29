@@ -20,7 +20,9 @@ import { AllBooksSectionComponent } from './components/layouts/all-books-section
 import { WishlistBooksSectionComponent } from './components/layouts/wishlist-books-section/wishlist-books-section.component';
 import { RecentlyAddedSectionComponent } from './components/layouts/recently-added-section/recently-added-section.component';
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
-import { CommentFormComponent } from './components/layouts/comment-form/comment-form.component';
+import { OfferFormComponent } from './components/layouts/offer-form/offer-form.component';
+import { SingleOfferComponent } from './components/layouts/single-offer/single-offer.component';
+import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CommentFormComponent } from './components/layouts/comment-form/comment-
     WishlistBooksSectionComponent,
     RecentlyAddedSectionComponent,
     SingleBookSectionComponent,
-    CommentFormComponent
+    OfferFormComponent,
+    OffersListSectionComponent,
+    SingleOfferComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+.ml-custom {
+    margin-left: 10px;
+  }
+
+  .name{
+    font-size: 18px;
+  }
+
+  .date{
+    font-size: 13px;
+  }
+  
+  .offer-body{
+    color: var(--body-text-color);
+}
