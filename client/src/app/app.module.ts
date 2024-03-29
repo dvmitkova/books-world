@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -24,6 +27,7 @@ import { SingleOfferComponent } from './components/layouts/single-offer/single-o
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
+import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -48,11 +52,12 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     CoreModule,
     SharedModule,
     FormsModule,
     UserModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
   ],
   providers: [],
   bootstrap: [AppComponent]
