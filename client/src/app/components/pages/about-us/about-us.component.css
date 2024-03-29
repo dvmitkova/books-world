@@ -1,9 +1,14 @@
+.container{
+  border-radius: 5px;
+}
+
 .text{
     color: var(--body-text-color);
 }
 
 .text-container{
     background-color: var(--light-color);
+    border-radius: 5px;
 }
 
 .btn{

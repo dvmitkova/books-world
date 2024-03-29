@@ -8,6 +8,7 @@ import { ContactsComponent } from './components/pages/contacts/contacts.componen
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'about', component: AboutUsComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'delivery', component: DeliveryComponent},
+  {path: 'points-system', component: PointsSystemComponent},
   {path: 'auth', loadChildren: () => import('./components/user/user.module').then((m) => m.UserModule)},
   {path: 'error', component: ErrorComponent},
   {path: '**', redirectTo: '/404'},

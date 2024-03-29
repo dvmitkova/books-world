@@ -1,21 +1,22 @@
 footer {
+  position: static;
   height: 130px;
   padding: 15px;
-  background-color: var(--navbar-footer-color);
   width: 100%;
   bottom: 0%;
+  background-color: var(--header-footer-color);
 }
 
 .site-logo{
   padding: 5px 20px;
   border-radius: 20px;
-  background-color: var(--light-color);
+  background-color: var(--dark-color);
   color: var(--body-text-color);
   font-size: 1.2em;
 }
 
 .nav-link{
-  color: var(--body-text-color)
+  color: var(--body-text-color);
 }
 
 .copyright {

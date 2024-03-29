@@ -2,9 +2,13 @@
     padding-left: 150px;
     padding-right: 150px;
     padding-bottom: 130px;
-    background-color: var(--light-color);
   }
   .text {
     color: var(--body-text-color);
   }
+
+  .container{
+    color: var(--body-text-color);
+}
+
   

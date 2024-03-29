@@ -4,9 +4,10 @@
 
 :root {
   --dark-color: #d0ab7c;
-  --light-color: #ddc8a0;
+  --light-color: #ede1c0;
   --body-text-color: #6b5b4a;
-  --navbar-footer-color: #d0ab7c;
+  --navbar-color: #d0ac7ced;
+  --header-footer-color: rgba(249, 244, 231, 0.945);
 }
 
 body {
@@ -18,7 +19,7 @@ body {
 }
 
 .bg-theme{
-  background-color: var(--light-color);
+  background-color: white;
 }
 
 .bg-secondary-theme{

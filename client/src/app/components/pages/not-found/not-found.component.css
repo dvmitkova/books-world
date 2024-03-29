@@ -1,0 +1,19 @@
+.not-found-container {
+    margin-top: 200px;
+    text-align: center;
+    color: var(--body-text-color);
+    min-height: 61vh;
+  }
+
+  .btn{
+    background-color: var(--light-color);
+    color: var(--body-text-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: var(--dark-color);
+  }

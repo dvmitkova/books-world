@@ -13,7 +13,6 @@ import { UserModule } from './components/user/user.module';
 import { CatalogComponent } from './components/pages/catalog/catalog.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
-import { HowItWorksComponent } from './components/pages/how-it-works/how-it-works.component';
 import { BookCardComponent } from './components/layouts/book-card/book-card.component';
 import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
 import { AllBooksSectionComponent } from './components/layouts/all-books-section/all-books-section.component';
@@ -24,6 +23,7 @@ import { OfferFormComponent } from './components/layouts/offer-form/offer-form.c
 import { SingleOfferComponent } from './components/layouts/single-offer/single-offer.component';
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
     CatalogComponent,
     ContactsComponent,
     DeliveryComponent,
-    HowItWorksComponent,
     BookCardComponent,
     SearchCardComponent,
     AllBooksSectionComponent,
@@ -44,7 +43,8 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
     OfferFormComponent,
     OffersListSectionComponent,
     SingleOfferComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PointsSystemComponent
   ],
   imports: [
     BrowserModule,
