@@ -36,10 +36,17 @@
           name="condition"
           class="form-control shadow-effect condition-input"
           placeholder="Condition: New / Excellent / Good / Satisfactory"
+          #condition="ngModel"
           ngModel
           required
-          
+          [ngClass]="{ 'is-invalid': condition.touched && condition.invalid }"
         />
+        <div
+          class="alert alert-danger"
+          *ngIf="condition.touched && condition.invalid"
+        >
+          Book condition field is required
+        </div>
       </div>
 
       <div class="form-group mt-3">
@@ -50,8 +57,17 @@
           name="points"
           class="form-control shadow-effect points-input"
           placeholder="Points: 1 - 10"
+          #points="ngModel"
           ngModel
+          required
+          [ngClass]="{ 'is-invalid': points.touched && points.invalid }"
         ></textarea>
+        <div
+          class="alert alert-danger"
+          *ngIf="points.touched && points.invalid"
+        >
+          Book points field is required
+        </div>
       </div>
 
       <button class="btn btn-theme mt-3" [disabled]="bookOfferForm.invalid">
