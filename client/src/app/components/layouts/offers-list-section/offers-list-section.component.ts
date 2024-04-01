@@ -20,3 +20,5 @@ export class OffersListSectionComponent implements OnInit {
     });
   }
 }
+
+//!Да се изтрие целия компонент!!
