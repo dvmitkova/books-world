@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BooksService } from 'src/app/services/books.service';
 import { Book } from 'src/app/types/book';
+
 
 @Component({
   selector: 'app-all-books-section',
@@ -9,15 +11,19 @@ import { Book } from 'src/app/types/book';
 })
 export class AllBooksSectionComponent implements OnInit {
 
-  booksArray!: Book[];
+  booksArray!: any[];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private router: Router) {}
 
   ngOnInit(): void {
     this.booksService.loadData().subscribe((data: any[]) => {
       console.log(data);
-      this.booksArray = data.map(item => item.data as Book);
+      this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
     });
+  }
+
+  viewBookDetails(bookId: string) {
+    this.router.navigate(['/book', bookId]);
   }
 
 }

@@ -8,24 +8,29 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-md-4 mb-3" *ngFor="let book of booksArray">
-      <div class="card shadow-effect">
-        <img src="{{ book.image }}" alt="post-image" class="card-img-top" />
+      <div class="card shadow-effect" (click)="viewBookDetails(book.id)">
+        <img
+          src="{{ book?.data.image }}"
+          alt="post-image"
+          class="card-img-top"
+        />
         <div class="card-body">
-        
           <div class="text-center">
-            <small>Author: {{ book.author }}</small>
+            <small>Author: {{ book?.data.author }}</small>
           </div>
           <div class="text-center">
-            <small class="ml-3">Points: {{ book.points }}</small>
+            <small class="ml-3">Points: {{ book?.data.points }}</small>
           </div>
           <div class="text-center">
-            <small class="ml-3">Condition: {{ book.condition }}</small>
+            <small class="ml-3">Condition: {{ book?.data.condition }}</small>
           </div>
 
-          <h5 class="mt-1">{{ book.name }}</h5>
-          <p>{{ book.description | slice : 200 }}</p>
+          <h5 class="mt-1">{{ book?.data.name }}</h5>
+          <p>{{ book?.data.description | slice : 200 }}</p>
 
-          <small class="text-center ml-3"> Added: {{ book.added }} </small>
+          <small class="text-center ml-3">
+            Added: {{ book?.data.added }}
+          </small>
         </div>
       </div>
     </div>
