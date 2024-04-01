@@ -16,7 +16,7 @@
           <small class="text-center ml-3"> {{ book.condition }} </small>
 
           <h5 class="mt-1">{{ book.name }}</h5>
-          <p>{{ book.description }}</p>
+          <p>{{ book.description | slice : 200 }}</p>
 
           <small class="text-center ml-3"> Added: {{ book.added }} </small>
         </div>

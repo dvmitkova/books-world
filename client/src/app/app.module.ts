@@ -10,6 +10,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { environment } from 'src/environments/environment.prod';
 
+import { SlicePipe } from './shared/pipes/slice.pipe';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -21,7 +23,6 @@ import { UserModule } from './components/user/user.module';
 import { CatalogComponent } from './components/pages/catalog/catalog.component';
 import { ContactsComponent } from './components/pages/contacts/contacts.component';
 import { DeliveryComponent } from './components/pages/delivery/delivery.component';
-import { BookCardComponent } from './components/layouts/book-card/book-card.component';
 import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
 import { AllBooksSectionComponent } from './components/layouts/all-books-section/all-books-section.component';
 import { RecentlyAddedSectionComponent } from './components/layouts/recently-added-section/recently-added-section.component';
@@ -33,6 +34,7 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,6 @@ import { OfferBookComponent } from './components/pages/offer-book/offer-book.com
     CatalogComponent,
     ContactsComponent,
     DeliveryComponent,
-    BookCardComponent,
     SearchCardComponent,
     AllBooksSectionComponent,
     RecentlyAddedSectionComponent,
@@ -53,6 +54,7 @@ import { OfferBookComponent } from './components/pages/offer-book/offer-book.com
     AboutUsComponent,
     PointsSystemComponent,
     OfferBookComponent,
+    SlicePipe,
   ],
   imports: [
     BrowserModule,
