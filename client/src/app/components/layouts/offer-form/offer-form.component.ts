@@ -22,6 +22,10 @@ export class OfferFormComponent implements OnInit {
       name: formData.value.name,
       condition: formData.value.condition,
       points: formData.value.points,
+      description: formData.value.description,
+      added: formData.value.added,
+      wishlist: formData.value.wishlist,
+      ordered: formData.value.ordered,
     };
 
     this.booksService.saveData(bookOfferData);

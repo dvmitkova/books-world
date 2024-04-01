@@ -9,12 +9,14 @@ import { DeliveryComponent } from './components/pages/delivery/delivery.componen
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
+import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/home'},
   {path: 'home', component: HomeComponent},
   {path: 'catalog', component: CatalogComponent},
-  {path: 'single-book', component: SingleBookSectionComponent},
+  { path: 'single-book', component: SingleBookSectionComponent },
+  { path: 'offer-book', component: OfferBookComponent },
   {path: 'about', component: AboutUsComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'delivery', component: DeliveryComponent},

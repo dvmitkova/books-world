@@ -31,7 +31,7 @@ import { SingleOfferComponent } from './components/layouts/single-offer/single-o
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
-import { OfferBookComponent } from './pages/offer-book/offer-book.component';
+import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
 
 @NgModule({
   declarations: [

@@ -16,7 +16,7 @@ export class BooksService {
       .add(data)
       .then((docRef) => {
         console.log(docRef);
-        this.toastr.success('Data inserted successfully!');
+        this.toastr.success('Book added!');
       })
       .catch((err) => {
         console.log(err);
