@@ -1,13 +1,11 @@
 export const environment = {
-    production: true,
-    firebaseConfig: {
-        apiKey: "AIzaSyCXMSHVrhfK4jWOMlhk5Q1hoLt4yT1cC1o",
-        authDomain: "books-world-e4977.firebaseapp.com",
-        databaseURL: "https://books-world-e4977-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "books-world-e4977",
-        storageBucket: "books-world-e4977.appspot.com",
-        messagingSenderId: "821361731973",
-        appId: "1:821361731973:web:625c782386b17a14133cec",
-        measurementId: "G-HRPYYRG0HZ"
-    }
-}
+  production: true,
+  firebaseConfig: {
+    apiKey: "AIzaSyB-2G1LoPgah2H2theutzO0CW1w3dnV7n8",
+    authDomain: "bg-books-world.firebaseapp.com",
+    projectId: "bg-books-world",
+    storageBucket: "bg-books-world.appspot.com",
+    messagingSenderId: "178244682394",
+    appId: "1:178244682394:web:e0d2eb14f4eda75c601523"
+  },
+};

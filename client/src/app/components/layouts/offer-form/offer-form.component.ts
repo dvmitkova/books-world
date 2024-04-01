@@ -33,6 +33,9 @@ export class OfferFormComponent implements OnInit {
       condition: formData.value.condition,
       points: formData.value.points,
     };
-    console.log(offerData);
+    this.afs.collection('books').add(offerData).then(docRef => {
+      console.log(docRef);
+    }).catch(err => {console.log(err)
+    })
   }
 }
