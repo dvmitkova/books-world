@@ -26,6 +26,9 @@ export class OfferFormComponent implements OnInit {
       added: formData.value.added,
       wishlist: formData.value.wishlist,
       ordered: formData.value.ordered,
+      pages: formData.value.pages,
+      author: formData.value.author,
+  image: formData.value.image,
     };
 
     this.booksService.saveData(bookOfferData);

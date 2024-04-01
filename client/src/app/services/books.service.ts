@@ -9,7 +9,6 @@ import { map } from 'rxjs/operators';
 export class BooksService {
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {}
 
-  //!!! data: any
   saveData(data: {}) {
     this.afs
       .collection('books')
@@ -37,4 +36,6 @@ export class BooksService {
         })
       );
   }
+
+  onEdit() {}
 }

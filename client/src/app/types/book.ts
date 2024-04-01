@@ -6,4 +6,7 @@ export interface Book {
   added: Date;
   wishlist: string;
   ordered: string;
+  pages: string;
+  author: string;
+  image: string;
 }
