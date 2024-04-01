@@ -3,7 +3,11 @@
     <h4>Offer this book</h4>
     <p>You can offer this book by filling this form</p>
 
-    <form class="form-inline" #offerForm = 'ngForm' (ngSubmit)="onSubmit(offerForm)">
+    <form
+      class="form-inline"
+      #bookOfferForm="ngForm"
+      (ngSubmit)="onSubmit(bookOfferForm)"
+    >
       <div class="form-group">
         <label for="">Name</label>
         <input
@@ -11,12 +15,21 @@
           name="bookName"
           class="form-control shadow-effect"
           placeholder="Enter your name here"
+          #newBook="ngModel"
           ngModel
+          required
+          [ngClass]="{ 'is-invalid': newBook.touched && newBook.invalid }"
         />
+        <div
+          class="alert alert-danger"
+          *ngIf="newBook.touched && newBook.invalid"
+        >
+          Book name field is required
+        </div>
       </div>
 
       <div class="form-group mt-3">
-        <label for="text">Book condition and information</label>
+        <label for="condition">Book condition and information</label>
         <input
           cols="30"
           rows="4"
@@ -24,6 +37,8 @@
           class="form-control shadow-effect condition-input"
           placeholder="Condition: New / Excellent / Good / Satisfactory"
           ngModel
+          required
+          
         />
       </div>
 
@@ -39,7 +54,9 @@
         ></textarea>
       </div>
 
-      <button class="btn-theme btn-info mt-3">Offer the book</button>
+      <button class="btn btn-theme mt-3" [disabled]="bookOfferForm.invalid">
+        Offer the book
+      </button>
     </form>
   </div>
 </div>
