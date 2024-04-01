@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-
+import { environment } from 'src/environments/environment.prod';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/pages/home/home.component';
-import { FormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { UserModule } from './components/user/user.module';
@@ -27,7 +27,6 @@ import { SingleOfferComponent } from './components/layouts/single-offer/single-o
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
-import { environment } from 'src/environments/environment.prod';
 
 @NgModule({
   declarations: [

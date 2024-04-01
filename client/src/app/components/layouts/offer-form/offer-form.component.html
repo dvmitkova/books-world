@@ -3,24 +3,28 @@
     <h4>Offer this book</h4>
     <p>You can offer this book by filling this form</p>
 
-    <form>
+    <form class="form-inline" #offerForm = 'ngForm' (ngSubmit)="onSubmit(offerForm)">
       <div class="form-group">
         <label for="">Name</label>
         <input
           type="text"
+          name="offerName"
           class="form-control shadow-effect"
           placeholder="Enter your name here"
+          ngModel
         />
       </div>
 
       <div class="form-group mt-3">
         <label for="text">Book condition and information</label>
-        <textarea
+        <input
           cols="30"
           rows="4"
+          name="condition"
           class="form-control shadow-effect condition-input"
           placeholder="Condition: New / Excellent / Good / Satisfactory"
-        ></textarea>
+          ngModel
+        />
       </div>
 
       <div class="form-group mt-3">
@@ -28,8 +32,10 @@
         <textarea
           cols="30"
           rows="4"
+          name="points"
           class="form-control shadow-effect points-input"
           placeholder="Points: 1 - 10"
+          ngModel
         ></textarea>
       </div>
 
