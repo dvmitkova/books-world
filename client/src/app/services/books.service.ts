@@ -37,5 +37,12 @@ export class BooksService {
       );
   }
 
+  getBookById(bookId: string) {
+    return this.afs
+      .collection('books')
+      .doc(bookId)
+      .valueChanges();
+  }
+
   onEdit() {}
 }

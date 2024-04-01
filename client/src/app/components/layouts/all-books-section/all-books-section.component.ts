@@ -9,14 +9,17 @@ import { Book } from 'src/app/types/book';
 })
 export class AllBooksSectionComponent implements OnInit {
 
-  booksArray!: Book[];
+  booksArray: any[] = [];
 
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
-    this.booksService.loadData().subscribe((data: any[]) => {
-      console.log(data);
-      this.booksArray = data.map(item => item.data as Book);
+    this.booksService.loadData().subscribe((books: any[]) => {
+      this.booksArray = books.map(book => {
+        const id = book.payload.doc.id;
+        const data = book.payload.doc.data();
+        return { id, ...data }
+      });
     });
   }
 
