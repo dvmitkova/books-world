@@ -11,9 +11,16 @@
       <div class="card shadow-effect">
         <img src="{{ book.image }}" alt="post-image" class="card-img-top" />
         <div class="card-body">
-          <small class="text-center"> {{ book.author }} </small>
-          <small class="text-center ml-3"> {{ book.points }} </small>
-          <small class="text-center ml-3"> {{ book.condition }} </small>
+        
+          <div class="text-center">
+            <small>Author: {{ book.author }}</small>
+          </div>
+          <div class="text-center">
+            <small class="ml-3">Points: {{ book.points }}</small>
+          </div>
+          <div class="text-center">
+            <small class="ml-3">Condition: {{ book.condition }}</small>
+          </div>
 
           <h5 class="mt-1">{{ book.name }}</h5>
           <p>{{ book.description | slice : 200 }}</p>
