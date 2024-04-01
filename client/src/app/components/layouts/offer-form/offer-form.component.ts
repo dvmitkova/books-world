@@ -19,7 +19,7 @@ export class OfferFormComponent implements OnInit {
     // }
 
     const bookOfferData: Book = {
-      name: formData.value.bookName,
+      name: formData.value.name,
       condition: formData.value.condition,
       points: formData.value.points,
     };
