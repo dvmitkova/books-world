@@ -1,41 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-offer-form',
   templateUrl: './offer-form.component.html',
-  styleUrls: ['./offer-form.component.css']
+  styleUrls: ['./offer-form.component.css'],
 })
-export class OfferFormComponent implements OnInit{
-  constructor() {}
+export class OfferFormComponent implements OnInit {
+  constructor(private afs: AngularFirestore) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  //   onSubmit(formData: any) {
+  //     let offerData = {
+  //       name: formData.value.offerName,
+  //       condition: formData.value.condition,
+  //       points: formData.value.points,
+  //     }
+  //     console.log(offerData);
+
+  //   }
+  // }
+
+  onSubmit(formData: NgForm) {
+    if (formData.invalid) {
+      return;
+    }
+
+    const offerData = {
+      name: formData.value.bookName,
+      condition: formData.value.condition,
+      points: formData.value.points,
+    };
+    console.log(offerData);
   }
-
-//   onSubmit(formData: any) {
-//     let offerData = {
-//       name: formData.value.offerName,
-//       condition: formData.value.condition,
-//       points: formData.value.points,
-//     }
-//     console.log(offerData);
-    
-//   }
-// }
-
-onSubmit(formData: NgForm) {
-
-  if (formData.invalid) {
-    return;
-  }   
-
-  const offerData = {
-    name: formData.value.bookName,
-    condition: formData.value.condition,
-    points: formData.value.points,
-  }
-  console.log(offerData);
-  
-}
 }
