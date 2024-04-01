@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
+import { Book } from 'src/app/types/book';
 
 @Component({
   selector: 'app-offer-form',
@@ -17,7 +18,7 @@ export class OfferFormComponent implements OnInit {
       return;
     }
 
-    const bookOfferData = {
+    const bookOfferData: Book = {
       name: formData.value.bookName,
       condition: formData.value.condition,
       points: formData.value.points,
