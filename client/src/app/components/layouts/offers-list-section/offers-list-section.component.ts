@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
+import { Book } from 'src/app/types/book';
 
 @Component({
   selector: 'app-offers-list-section',
@@ -8,14 +9,14 @@ import { BooksService } from 'src/app/services/books.service';
 })
 export class OffersListSectionComponent implements OnInit {
 
-  booksArray!: Array<object>;
+  booksArray!: Book[];
 
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
-    this.booksService.loadData().subscribe((data) => {
+    this.booksService.loadData().subscribe((data: any[]) => {
       console.log(data);
-      this.booksArray = data;
+      this.booksArray = data.map(item => item.data as Book);
     });
   }
 }

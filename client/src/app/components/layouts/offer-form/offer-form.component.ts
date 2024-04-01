@@ -25,5 +25,7 @@ export class OfferFormComponent implements OnInit {
     };
 
     this.booksService.saveData(bookOfferData);
+
+    formData.reset();
   }
 }

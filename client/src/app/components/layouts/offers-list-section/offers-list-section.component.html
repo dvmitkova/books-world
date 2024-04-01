@@ -1,12 +1,12 @@
 <div class="card mb-5 mt-3 pb-3 shadow-effect">
   <div class="card-body">
-    <h4 class="mt-3 mb-3">Offers - 9</h4>
+    <h4 class="mt-3 mb-3">Offers - {{ booksArray.length }}</h4>
 
-    <div class="offer-box mb-3 mt-4">
-      <div class="offer-body ml-custom" *ngFor="let book of booksArray">
-        <h6 class="name">Name</h6>
-        <h6 class="date">05.09.2017</h6>
-        <small class="text-danger">Condition - 3</small>
+    <div class="offer-box mb-3 mt-4" *ngFor="let book of booksArray">
+      <div class="offer-body ml-custom">
+        <h6 class="name">{{ book.name }}</h6>
+        <h6 class="points">Points: {{ book.points }}</h6>
+        <small class="text-danger">Condition: {{ book.condition }}</small>
         <div class="mt-3 mb-3">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, at.
         </div>
