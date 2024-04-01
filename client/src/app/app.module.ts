@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
+
 import { environment } from 'src/environments/environment.prod';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -56,7 +58,8 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
     SharedModule,
     FormsModule,
     UserModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig))
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

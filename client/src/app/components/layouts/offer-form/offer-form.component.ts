@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-offer-form',
@@ -12,13 +13,29 @@ export class OfferFormComponent implements OnInit{
 
   }
 
-  onSubmit(formData: any) {
-    let offerData = {
-      name: formData.value.offerName,
-      condition: formData.value.condition,
-      points: formData.value.points,
-    }
-    console.log(offerData);
+//   onSubmit(formData: any) {
+//     let offerData = {
+//       name: formData.value.offerName,
+//       condition: formData.value.condition,
+//       points: formData.value.points,
+//     }
+//     console.log(offerData);
     
+//   }
+// }
+
+onSubmit(formData: NgForm) {
+
+  if (formData.invalid) {
+    return;
+  }   
+
+  const offerData = {
+    name: formData.value.bookName,
+    condition: formData.value.condition,
+    points: formData.value.points,
   }
+  console.log(offerData);
+  
+}
 }
