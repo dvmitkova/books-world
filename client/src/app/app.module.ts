@@ -24,7 +24,6 @@ import { DeliveryComponent } from './components/pages/delivery/delivery.componen
 import { BookCardComponent } from './components/layouts/book-card/book-card.component';
 import { SearchCardComponent } from './components/layouts/search-card/search-card.component';
 import { AllBooksSectionComponent } from './components/layouts/all-books-section/all-books-section.component';
-import { WishlistBooksSectionComponent } from './components/layouts/wishlist-books-section/wishlist-books-section.component';
 import { RecentlyAddedSectionComponent } from './components/layouts/recently-added-section/recently-added-section.component';
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
 import { OfferFormComponent } from './components/layouts/offer-form/offer-form.component';
@@ -32,6 +31,7 @@ import { SingleOfferComponent } from './components/layouts/single-offer/single-o
 import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
+import { OfferBookComponent } from './pages/offer-book/offer-book.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,6 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
     BookCardComponent,
     SearchCardComponent,
     AllBooksSectionComponent,
-    WishlistBooksSectionComponent,
     RecentlyAddedSectionComponent,
     SingleBookSectionComponent,
     OfferFormComponent,
@@ -53,6 +52,7 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
     SingleOfferComponent,
     AboutUsComponent,
     PointsSystemComponent,
+    OfferBookComponent,
   ],
   imports: [
     BrowserModule,
