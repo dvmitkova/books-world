@@ -1,3 +1,25 @@
 .card-body{
     color: var(--body-text-color);
 }
+
+.ml-custom {
+    margin-left: 10px;
+  }
+
+  .name{
+    font-size: 18px;
+  }
+
+  .date{
+    font-size: 13px;
+  }
+  
+  .offer-body{
+    color: var(--body-text-color);
+}
+
+.offer-box {
+  padding: 15px 30px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}

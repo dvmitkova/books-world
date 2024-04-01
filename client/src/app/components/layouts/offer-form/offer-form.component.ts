@@ -14,9 +14,9 @@ export class OfferFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(formData: NgForm) {
-    if (formData.invalid) {
-      return;
-    }
+    // if (formData.invalid) {
+    //   return;
+    // }
 
     const bookOfferData: Book = {
       name: formData.value.bookName,
@@ -24,6 +24,6 @@ export class OfferFormComponent implements OnInit {
       points: formData.value.points,
     };
 
-    this.booksService.saveData(bookOfferData)
+    this.booksService.saveData(bookOfferData);
   }
 }

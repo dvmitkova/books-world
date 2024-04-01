@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -50,7 +52,7 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
     OffersListSectionComponent,
     SingleOfferComponent,
     AboutUsComponent,
-    PointsSystemComponent
+    PointsSystemComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,8 +64,10 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
