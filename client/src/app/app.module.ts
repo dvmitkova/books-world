@@ -29,7 +29,6 @@ import { RecentlyAddedSectionComponent } from './components/layouts/recently-add
 import { SingleBookSectionComponent } from './components/pages/single-book/single-book-section.component';
 import { OfferFormComponent } from './components/layouts/offer-form/offer-form.component';
 import { SingleOfferComponent } from './components/layouts/single-offer/single-offer.component';
-import { OffersListSectionComponent } from './components/layouts/offers-list-section/offers-list-section.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
@@ -49,7 +48,6 @@ import { OfferBookComponent } from './components/pages/offer-book/offer-book.com
     RecentlyAddedSectionComponent,
     SingleBookSectionComponent,
     OfferFormComponent,
-    OffersListSectionComponent,
     SingleOfferComponent,
     AboutUsComponent,
     PointsSystemComponent,
