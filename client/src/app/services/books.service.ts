@@ -9,17 +9,21 @@ import { map } from 'rxjs/operators';
 export class BooksService {
   constructor(private afs: AngularFirestore, private toastr: ToastrService) {}
 
-  saveData(data: {}) {
-    this.afs
-      .collection('books')
-      .add(data)
-      .then((docRef) => {
-        console.log(docRef);
-        this.toastr.success('Book added!');
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  saveData(data: {}): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.afs
+        .collection('books')
+        .add(data)
+        .then((docRef) => {
+          console.log(docRef.id);
+          this.toastr.success('Book added!');
+          resolve(docRef.id); // Resolve with the new book ID
+        })
+        .catch((err) => {
+          console.log(err);
+          reject(err); // Reject with the error
+        });
+    });
   }
 
   loadData() {
