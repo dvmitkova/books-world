@@ -18,11 +18,11 @@ export class OfferFormComponent implements OnInit {
     private router: Router // Inject Router
   ) {
     this.bookForm = this.fb.group({
-      name: ['', [Validators.required]],
+      name: ['', Validators.required],
       author: ['', Validators.required],
       condition: [null, Validators.required],
       points: ['', Validators.required],
-      description: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(10)]],
       pages: [''],
       image: [''],
     });

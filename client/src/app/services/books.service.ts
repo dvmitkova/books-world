@@ -42,11 +42,21 @@ export class BooksService {
   }
 
   getBookById(bookId: string) {
-    return this.afs
-      .collection('books')
-      .doc(bookId)
-      .valueChanges();
+    return this.afs.collection('books').doc(bookId).valueChanges();
   }
 
-  onEdit() {}
+  onEdit() {
+    return this.afs
+      .collection('books')
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((a) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, data };
+          });
+        })
+      );
+  }
 }
