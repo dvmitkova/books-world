@@ -3,56 +3,48 @@
     <h4>Offer a book</h4>
     <p>You can offer your book by filling this form</p>
 
-    <form
-      class="form-inline"
-      #bookOfferForm="ngForm"
-      (ngSubmit)="onSubmit(bookOfferForm)"
-    >
+    <!-- Book Name -->
+    <form class="form-inline" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="">Title</label>
+        <label for="name">Title</label>
         <input
           type="text"
-          name="name"
+          formControlName="name"
           class="form-control shadow-effect name-input"
           placeholder="Enter the book title here"
-          #newBook="ngModel"
-          ngModel
-          required
-          [ngClass]="{ 'is-invalid': newBook.touched && newBook.invalid }"
         />
         <div
           class="alert alert-danger"
-          *ngIf="newBook.touched && newBook.invalid"
+          *ngIf="bookForm.get('name')?.invalid && bookForm.get('name')?.touched"
         >
           Book name field is required
         </div>
       </div>
 
+      <!-- Book Author -->
       <div class="form-group mt-3">
-        <label for="">Author</label>
+        <label for="author">Author</label>
         <input
           type="text"
-          name="author"
+          formControlName="author"
           class="form-control shadow-effect author-input"
           placeholder="Enter the book author here"
-          #author="ngModel"
-          ngModel
-          required
-          [ngClass]="{ 'is-invalid': author.touched && author.invalid }"
         />
         <div
           class="alert alert-danger"
-          *ngIf="author.touched && author.invalid"
+          *ngIf="
+            bookForm.get('author')?.invalid && bookForm.get('author')?.touched
+          "
         >
           Book author field is required
         </div>
       </div>
 
-      <!-- Трябва да добавя падащо меню -->
+      <!-- Book Condition -->
       <div class="form-group mt-3 shadow-effect">
         <label for="book-condition">Condition</label>
-        <select id="book-condition" class="form-control">
-          <option class="select" disabled selected>
+        <select formControlName="condition" class="form-control">
+          <option [value]="null" disabled selected>
             Please select a book condition
           </option>
           <option value="Excellent">Excellent</option>
@@ -61,78 +53,77 @@
           <option value="Satisfactory">Satisfactory</option>
           <option value="Poor">Poor</option>
         </select>
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            bookForm.get('condition')?.invalid &&
+            bookForm.get('condition')?.touched
+          "
+        >
+          Book condition field is required
+        </div>
       </div>
 
-      <!-- Трябва да добавя функционалност за качване на снимка -->
+      <!-- Book Cover -->
       <div class="form-group mt-3">
-        <label for="">Book Cover</label>
-        <img [src]="imgSrc" class="form-control img-fluid img-preview" />
+        <label for="book-cover">Book Cover (URL)</label>
         <input
-          type="file"
+          type="text"
+          formControlName="image"
           class="form-control"
-          accept="image/*"
-          (change)="showPreview($event)"
+          placeholder="Enter the image URL"
         />
       </div>
+    
 
+      <!-- Points -->
       <div class="form-group mt-3">
-        <label for="text">Points</label>
+        <label for="points">Points</label>
         <textarea
           cols="30"
           rows="4"
-          name="points"
+          formControlName="points"
           class="form-control shadow-effect points-input"
           placeholder="Points: 1 - 10"
-          #points="ngModel"
-          ngModel
-          required
-          [ngClass]="{ 'is-invalid': points.touched && points.invalid }"
         ></textarea>
         <div
           class="alert alert-danger"
-          *ngIf="points.touched && points.invalid"
+          *ngIf="bookForm.get('points')?.invalid && bookForm.get('points')?.touched"
         >
           Book points field is required
         </div>
       </div>
 
+      <!-- Description -->
       <div class="form-group mt-3">
-        <label for="text">Description</label>
+        <label for="description">Description</label>
         <textarea
           cols="30"
           rows="4"
-          name="description"
+          formControlName="description"
           class="form-control shadow-effect description-input"
           placeholder="Add a summary of the book"
-          #description="ngModel"
-          ngModel
-          required
-          [ngClass]="{
-            'is-invalid': description.touched && description.invalid
-          }"
         ></textarea>
         <div
           class="alert alert-danger"
-          *ngIf="description.touched && description.invalid"
+          *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched"
         >
           Book description field is required
         </div>
       </div>
 
+      <!-- Pages -->
       <div class="form-group mt-3">
         <label for="pages">Pages</label>
         <input
-          cols="30"
-          rows="4"
-          name="pages"
+          type="number"
+          formControlName="pages"
           class="form-control shadow-effect pages-input"
-          placeholder="Number of pages - Not required!"
-          #pages="ngModel"
-          ngModel
+          placeholder="Number of pages - Not required"
         />
       </div>
 
-      <button class="btn btn-theme mt-3" [disabled]="bookOfferForm.invalid">
+      <button class="btn btn-theme mt-3" [disabled]="bookForm.invalid">
         Offer the book
       </button>
     </form>

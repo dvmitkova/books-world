@@ -3,7 +3,7 @@ export interface Book {
   condition: string;
   points: string;
   description: string;
-  added: Date;
+  added: string;
   wishlist: string;
   ordered: string;
   pages: string;

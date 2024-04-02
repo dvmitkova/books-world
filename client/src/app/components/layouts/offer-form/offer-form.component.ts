@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
 import { Book } from 'src/app/types/book';
 
@@ -9,42 +9,77 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./offer-form.component.css'],
 })
 export class OfferFormComponent implements OnInit {
-  imgSrc: any = '.././assets/img/placeholder-image.avif';
   selectedImg: any;
+  bookForm: FormGroup;
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private fb: FormBuilder) {
+    this.bookForm = this.fb.group({
+      name: ['', [Validators.required]],
+      author: ['', Validators.required],
+      condition: [null, Validators.required],
+      points: ['', Validators.required],
+      description: ['', Validators.required],
+      pages: [''],
+      image: [''],
+    });
+  }
 
   ngOnInit(): void {}
 
-  onSubmit(formData: NgForm) {
-    // if (formData.invalid) {
-    //   return;
-    // }
-
-    const bookOfferData: Book = {
-      name: formData.value.name,
-      condition: formData.value.condition,
-      points: formData.value.points,
-      description: formData.value.description,
-      added: formData.value.added,
-      wishlist: formData.value.wishlist,
-      ordered: formData.value.ordered,
-      pages: formData.value.pages,
-      author: formData.value.author,
-      image: formData.value.image,
-    };
-
-    this.booksService.saveData(bookOfferData);
-
-    formData.reset();
-  }
-
-  showPreview($event: any) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      this.imgSrc = e.target?.result;
-    };
-    reader.readAsDataURL($event.target.files[0]);
-    this.selectedImg = $event.target.files[0];//to access the file
+  onSubmit() {
+    if (this.bookForm.invalid) {
+      return;
+    }
+  
+    const imageValue = this.bookForm.value.image;
+  
+    if (typeof imageValue === 'string') {
+      // If the image value is a URL, use it directly
+      const bookOfferData: Book = {
+        name: this.bookForm.value.name,
+        condition: this.bookForm.value.condition,
+        points: this.bookForm.value.points,
+        description: this.bookForm.value.description,
+        pages: this.bookForm.value.pages || 0,
+        author: this.bookForm.value.author,
+        image: imageValue, // Use the URL directly
+        added: '',
+        wishlist: '',
+        ordered: '',
+      };
+  
+      console.log(bookOfferData);
+  
+      this.booksService.saveData(bookOfferData);
+  
+      this.bookForm.reset();
+    } else {
+      // If the image value is a file, read it as data URL
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const base64String = event.target?.result as string;
+  
+        const bookOfferData: Book = {
+          name: this.bookForm.value.name,
+          condition: this.bookForm.value.condition,
+          points: this.bookForm.value.points,
+          description: this.bookForm.value.description,
+          pages: this.bookForm.value.pages || 0,
+          author: this.bookForm.value.author,
+          image: base64String,
+          added: '',
+          wishlist: '',
+          ordered: '',
+        };
+  
+        console.log(bookOfferData);
+  
+        this.booksService.saveData(bookOfferData);
+  
+        this.bookForm.reset();
+      };
+  
+      reader.readAsDataURL(this.selectedImg);
+    }
   }
 }
