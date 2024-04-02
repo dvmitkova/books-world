@@ -1,7 +1,7 @@
 <div class="card mt-5 mb-5 shadow-effect">
   <div class="card-body mt-3">
-    <h4>Offer a book</h4>
-    <p>You can offer your book by filling this form</p>
+    <h4>{{ formStatus }} book</h4>
+    <p>You can {{ formStatus }} book by filling this form</p>
 
     <!-- Book Name -->
     <form class="form-inline" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
@@ -74,7 +74,6 @@
           placeholder="Enter the image URL"
         />
       </div>
-    
 
       <!-- Points -->
       <div class="form-group mt-3">
@@ -88,7 +87,9 @@
         ></textarea>
         <div
           class="alert alert-danger"
-          *ngIf="bookForm.get('points')?.invalid && bookForm.get('points')?.touched"
+          *ngIf="
+            bookForm.get('points')?.invalid && bookForm.get('points')?.touched
+          "
         >
           Book points field is required
         </div>
@@ -106,7 +107,10 @@
         ></textarea>
         <div
           class="alert alert-danger"
-          *ngIf="bookForm.get('description')?.invalid && bookForm.get('description')?.touched"
+          *ngIf="
+            bookForm.get('description')?.invalid &&
+            bookForm.get('description')?.touched
+          "
         >
           Book description field is required
         </div>
@@ -123,9 +127,12 @@
         />
       </div>
 
-      <button class="btn btn-theme mt-3" [disabled]="bookForm.invalid">
-        Offer the book
-      </button>
+      <div class="btn-group">
+        <button class="btn btn-theme mt-4" [disabled]="bookForm.invalid">
+          {{ formStatus }} book
+        </button>
+        <button class="btn btn-theme mt-4" routerLink="/home">Back to All Books</button>
+      </div>
     </form>
   </div>
 </div>

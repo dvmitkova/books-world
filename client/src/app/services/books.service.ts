@@ -41,6 +41,10 @@ export class BooksService {
       );
   }
 
+  loadOneBookData(id: string) {
+    return this.afs.collection('books').doc(id).valueChanges();
+  }
+
   getBookById(bookId: string) {
     return this.afs.collection('books').doc(bookId).valueChanges();
   }

@@ -20,4 +20,8 @@ export class RecentlyAddedSectionComponent implements OnInit {
       this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
     });
   }
+
+  viewBookDetails(bookId: string) {
+    this.router.navigate(['/book', bookId]);
+  }
 }
