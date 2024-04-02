@@ -30,11 +30,11 @@ export class UserService {
 
     return this.afs.createUserWithEmailAndPassword(user.email, user.password);
   }
-
+  
   logout() {
     this.afs.signOut().then(() => {
       this.toastr.success('User logged out successfully');
-      this.router.navigate(['/login'])
+      this.router.navigate(['/auth/login'])
     })
   }
 }
