@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
 
@@ -7,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class BooksService {
-  constructor(private afs: AngularFirestore, private toastr: ToastrService) {}
+  constructor(private afs: AngularFirestore, private toastr: ToastrService, private router: Router) {}
 
   saveData(data: {}): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -81,5 +82,19 @@ export class BooksService {
           reject(error);
         });
     });
+  }
+
+  deleteData(id: string) {
+    this.afs
+      .doc(`books/${id}`) // Corrected collection path
+      .delete()
+      .then(() => {
+        this.toastr.warning('Book Deleted!');
+        this.router.navigate(['/home']);
+      })
+      .catch((error) => {
+        console.error('Error deleting book:', error);
+        this.toastr.error('Failed to delete book');
+      });
   }
 }

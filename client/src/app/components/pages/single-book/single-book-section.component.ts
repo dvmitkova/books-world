@@ -6,7 +6,7 @@ import { Book } from 'src/app/types/book';
 @Component({
   selector: 'app-single-book-section',
   templateUrl: './single-book-section.component.html',
-  styleUrls: ['./single-book-section.component.css']
+  styleUrls: ['./single-book-section.component.css'],
 })
 export class SingleBookSectionComponent implements OnInit {
   bookId!: string | null;
@@ -18,7 +18,7 @@ export class SingleBookSectionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       this.bookId = params.get('id');
       if (this.bookId) {
         this.fetchBookDetails(this.bookId);
@@ -30,5 +30,9 @@ export class SingleBookSectionComponent implements OnInit {
     this.booksService.getBookById(bookId).subscribe((book: any) => {
       this.book = book;
     });
+  }
+
+  onDelete(bookId: string) {
+    this.booksService.deleteData(bookId);
   }
 }

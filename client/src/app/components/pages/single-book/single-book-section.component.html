@@ -13,9 +13,15 @@
                 style="max-width: 350px; height: auto"
               />
               <div class="card-body">
-                <small class="text-info text-center">{{ book.pages }} pages</small>
-                <small class="text-warning text-center ml-custom">Written: {{ book.author }}</small>
-                <small class="text-danger text-center ml-custom">Ordered: {{ book.ordered }} times</small>
+                <small class="text-info text-center"
+                  >{{ book.pages }} pages</small
+                >
+                <small class="text-warning text-center ml-custom"
+                  >Written: {{ book.author }}</small
+                >
+                <small class="text-danger text-center ml-custom"
+                  >Ordered: {{ book.ordered }} times</small
+                >
               </div>
             </div>
             <div class="col-md-6">
@@ -24,8 +30,20 @@
                 <div class="btn-offer mt-3">
                   <button class="btn-theme mt-3">Add to Wishlist</button>
                   <button class="btn-theme mt-3 ml-custom">Order</button>
-                  <button class="btn-theme mt-3 ml-custom" routerLink="/offer-book" [queryParams]="{id: bookId}">Edit</button>
-                  <button class="btn-theme mt-3 ml-custom">Delete</button>
+                  <button
+                    class="btn-theme mt-3 ml-custom"
+                    routerLink="/offer-book"
+                    [queryParams]="{ id: bookId }"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="btn-theme mt-3 ml-custom"
+                    *ngIf="bookId"
+                    (click)="onDelete(bookId)"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
