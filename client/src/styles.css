@@ -19,40 +19,44 @@ body {
   color: var(--body-text-color);
 }
 
-.bg-theme{
+.bg-theme {
   background-color: white;
 }
 
-.bg-secondary-theme{
+.bg-secondary-theme {
   background-color: var(--dark-color);
 }
 
-.bg-profile-card-theme{
+.bg-profile-card-theme {
   background-color: var(--light-color);
   color: var(--body-text-color);
 }
 
-.text-theme-primary{
-  color: var(--dark-color)
+.text-theme-primary {
+  color: var(--dark-color);
 }
 
-.text-theme-dark{
+.text-theme-dark {
   color: var(--body-text-color);
 }
 
-.shadow-effect{
+.shadow-effect {
   border: none;
   box-shadow: 5px 5px 10px 2px rgba(123, 98, 80, 0.162);
 }
 
-input[type = text], input[type = email] {
+input[type="text"],
+input[type="username"],
+input[type="email"],
+input[type="password"],
+input[type="rePassword"] {
   height: 60px;
   padding-left: 20px;
-  font-size: 13px;
-  width: 100%
+  margin-top: 10px;
+  width: 100%;
 }
 
-.btn-theme{
+.btn-theme {
   background-color: var(--light-color);
   color: var(--body-text-color);
   border: none;
