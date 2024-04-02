@@ -8,7 +8,7 @@
             <h3 class="text-theme-primary">Login</h3>
             <p>Please login to your account</p>
           </div>
-          <form #loginForm="ngForm">
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
             <div class="form-group">
               <input
                 type="email"
@@ -18,9 +18,20 @@
                 #Email="ngModel"
                 ngModel
                 required
-                [ngClass]="{'is-invalid': Email.touched && Email.invalid}"
+                email
+                [ngClass]="{ 'is-invalid': Email.touched && Email.invalid }"
               />
-              <div class="alert alert-danger" *ngIf="Email.touched && Email.invalid">Email must be filled</div>
+              <div
+                class="alert alert-danger"
+                *ngIf="Email.touched && Email.invalid"
+              >
+                <div *ngIf="Email.errors?.['required']">
+                  Email must be filled
+                </div>
+                <div *ngIf="Email.errors?.['email']">
+                  Please enter a valid email address
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -31,14 +42,29 @@
                 #Password="ngModel"
                 ngModel
                 required
-                [ngClass]="{'is-invalid': Password.touched && Password.invalid}"
+                [ngClass]="{
+                  'is-invalid': Password.touched && Password.invalid
+                }"
               />
-              <div class="alert alert-danger" *ngIf="Password.touched && Password.invalid">Password must be filled</div>
-
+              <div
+                class="alert alert-danger"
+                *ngIf="Password.touched && Password.invalid"
+              >
+                Password must be filled
+              </div>
             </div>
             <div class="btn-container">
-              <button class="btn btn-theme shadow-effect mt-3">Login</button>
+              <button
+                class="btn btn-theme shadow-effect mt-3"
+                [disabled]="loginForm.invalid"
+              >
+                Login
+              </button>
             </div>
+            <p class="text-center mt-3">
+              You don't have an account?
+              <a class="smth" routerLink="/auth/register">Register</a>
+            </p>
           </form>
         </div>
       </div>

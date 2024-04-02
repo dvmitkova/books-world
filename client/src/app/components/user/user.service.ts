@@ -1,38 +1,24 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
-import { UserForAuth } from 'src/app/types/user';
-import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from 'src/app/shared/urls';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UserService implements OnDestroy {
-  private user$$ = new BehaviorSubject<UserForAuth | undefined>(undefined);
-  private user$ = this.user$$.asObservable();
+export class UserService {
+  isLogggedIn = false;
 
-  user: UserForAuth | undefined;
-  USER_KEY = '[user]';
+  constructor(private afs: AngularFireAuth, private toastr: ToastrService) {}
 
-  userSubscription: Subscription;
-
-  get isLogged(): boolean {
-    return !!this.user;
-  }
-
-  constructor(private http: HttpClient) { 
-    this.userSubscription = this.user$.subscribe(user => {
-      this.user = user;
+  login(email: string, password: string) {
+    this.afs.signInWithEmailAndPassword(email, password).then(logRef => {
+      this.toastr.success('Logged in successfully');
     })
   }
 
-  login(email: string, password: string) {
-    return this.http
-    .post<UserForAuth>(USER_LOGIN_URL, {email, password})
-    .pipe(tap((user) => this.user$$.next(user)));
-  }
+  register(user: { email: string; password: string }) {
+    console.log(user);
 
-  ngOnDestroy(): void {
-      this.userSubscription.unsubscribe();
+    return this.afs.createUserWithEmailAndPassword(user.email, user.password);
   }
 }

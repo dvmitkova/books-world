@@ -16,3 +16,7 @@
 .btn-theme:hover {
   background-color: var(--dark-color);
 }
+
+a.smth {
+  color: var(--body-text-color);
+}

@@ -32,6 +32,7 @@ import { OfferFormComponent } from './components/layouts/offer-form/offer-form.c
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
+import { UserService } from './components/user/user.service';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { OfferBookComponent } from './components/pages/offer-book/offer-book.com
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

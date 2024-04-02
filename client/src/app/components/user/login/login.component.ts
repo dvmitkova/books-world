@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/components/user/user.service';
@@ -6,20 +6,15 @@ import { UserService } from 'src/app/components/user/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  // constructor(private userService: UserService, private router: Router) {}
+export class LoginComponent implements OnInit {
 
-  // login(form: NgForm) {
-  //   if (form.invalid) {
-  //     return;
-  //   }
+  constructor(private userService: UserService) {}
 
-  //   const { email, password } = form.value;
-
-  //   this.userService.login(email, password).subscribe(() => {
-  //     this.router.navigate(['/home'])
-  //   })
-  // }
+  ngOnInit(): void { }
+  
+  onSubmit(formValue: any) {
+    this.userService.login(formValue.email, formValue.password);
+  }
 }
