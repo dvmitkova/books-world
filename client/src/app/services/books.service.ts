@@ -63,4 +63,18 @@ export class BooksService {
         })
       );
   }
+
+  updateData(bookId: string, bookData: any): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.afs.collection('books').doc(bookId).update(bookData)
+        .then(() => {
+          this.toastr.success('Book updated successfully');
+          resolve();
+        })
+        .catch((error) => {
+          console.error('Error updating book:', error);
+          reject(error);
+        });
+    });
+  }
 }
