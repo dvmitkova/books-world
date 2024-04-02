@@ -99,8 +99,9 @@ import { Book } from 'src/app/types/book';
 })
 export class OfferFormComponent implements OnInit {
   bookForm!: FormGroup;
-  book: any; // Change the type as needed
+  book: any;
   formStatus: string = 'Offer new';
+  bookId: string | null = null;
 
   constructor(
     private booksService: BooksService,
@@ -110,26 +111,13 @@ export class OfferFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((value) => {
-      const id = value['id'];
-
+    this.route.queryParams.subscribe((params) => {
+      const id = params['id'];
       if (id) {
-        this.booksService.loadOneBookData(id).subscribe((book: any) => { // Adjust the type as needed
+        this.bookId = id;
+        this.booksService.loadOneBookData(id).subscribe((book: any) => {
           this.book = book;
-
-          this.bookForm = this.fb.group({
-            name: [this.book.name || '', Validators.required], // Check if 'name' exists
-            author: [this.book.author || '', Validators.required], // Check if 'author' exists
-            condition: [this.book.condition || null, Validators.required], // Check if 'condition' exists
-            points: [this.book.points || '', Validators.required], // Check if 'points' exists
-            description: [
-              this.book.description || '',
-              [Validators.required, Validators.minLength(10)],
-            ],
-            pages: [this.book.pages || ''],
-            image: [this.book.image || ''],
-          });
-
+          this.bookForm.patchValue(book); // Populate the form with book data
           this.formStatus = 'Edit';
         });
       }
@@ -166,13 +154,28 @@ export class OfferFormComponent implements OnInit {
       ordered: 0,
     };
 
-    this.booksService
-      .saveData(bookOfferData)
-      .then((newBookId: string) => {
-        this.router.navigate(['/book', newBookId]);
-      })
-      .catch((error) => {
-        console.error('Error saving book:', error);
-      });
+    if (this.formStatus === 'Offer new') {
+      this.booksService
+        .saveData(bookOfferData)
+        .then((newBookId: string) => {
+          this.router.navigate(['/book', newBookId]);
+        })
+        .catch((error) => {
+          console.error('Error saving book:', error);
+        });
+    } else if (this.formStatus === 'Edit') {
+
+      if (this.formStatus === 'Edit' && this.bookId !== null) {
+        const bookId = this.bookId; // Use the assigned bookId property
+        this.booksService
+          .updateData(bookId, bookOfferData)
+          .then(() => {
+            this.router.navigate(['/book', bookId]);
+          })
+          .catch((error) => {
+            console.error('Error updating book:', error);
+          });
+      }
+    }
   }
 }
