@@ -9,12 +9,12 @@
       (ngSubmit)="onSubmit(bookOfferForm)"
     >
       <div class="form-group">
-        <label for="">Name</label>
+        <label for="">Title</label>
         <input
           type="text"
           name="name"
-          class="form-control shadow-effect"
-          placeholder="Enter your name here"
+          class="form-control shadow-effect name-input"
+          placeholder="Enter the book title here"
           #newBook="ngModel"
           ngModel
           required
@@ -29,13 +29,33 @@
       </div>
 
       <div class="form-group mt-3">
+        <label for="">Author</label>
+        <input
+          type="text"
+          name="author"
+          class="form-control shadow-effect author-input"
+          placeholder="Enter the book author here"
+          #author="ngModel"
+          ngModel
+          required
+          [ngClass]="{ 'is-invalid': author.touched && author.invalid }"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="author.touched && author.invalid"
+        >
+          Book author field is required
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
         <label for="condition">Book condition and information</label>
         <input
           cols="30"
           rows="4"
           name="condition"
           class="form-control shadow-effect condition-input"
-          placeholder="Condition: New / Excellent / Good / Satisfactory"
+          placeholder="Condition: New / Excellent / Good / Satisfactory / Poor"
           #condition="ngModel"
           ngModel
           required
@@ -68,6 +88,42 @@
         >
           Book points field is required
         </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="text">Description</label>
+        <textarea
+          cols="30"
+          rows="4"
+          name="description"
+          class="form-control shadow-effect description-input"
+          placeholder="Add a summary of the book"
+          #description="ngModel"
+          ngModel
+          required
+          [ngClass]="{
+            'is-invalid': description.touched && description.invalid
+          }"
+        ></textarea>
+        <div
+          class="alert alert-danger"
+          *ngIf="description.touched && description.invalid"
+        >
+          Book description field is required
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="pages">Pages</label>
+        <input
+          cols="30"
+          rows="4"
+          name="pages"
+          class="form-control shadow-effect pages-input"
+          placeholder="Number of pages - Not required!"
+          #pages="ngModel"
+          ngModel
+        />
       </div>
 
       <button class="btn btn-theme mt-3" [disabled]="bookOfferForm.invalid">

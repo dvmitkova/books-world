@@ -12,24 +12,27 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/home'},
-  {path: 'home', component: HomeComponent},
-  {path: 'catalog', component: CatalogComponent},
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: 'home', component: HomeComponent },
+  { path: 'catalog', component: CatalogComponent },
   { path: 'book/:id', component: SingleBookSectionComponent },
   { path: 'offer-book', component: OfferBookComponent },
-  {path: 'about', component: AboutUsComponent},
-  {path: 'contacts', component: ContactsComponent},
-  {path: 'delivery', component: DeliveryComponent},
-  {path: 'points-system', component: PointsSystemComponent},
-  {path: 'auth', loadChildren: () => import('./components/user/user.module').then((m) => m.UserModule)},
-  {path: 'error', component: ErrorComponent},
-  {path: '**', redirectTo: '/404'},
-  {path: '404', component: NotFoundComponent}
-
+  { path: 'about', component: AboutUsComponent },
+  { path: 'contacts', component: ContactsComponent },
+  { path: 'delivery', component: DeliveryComponent },
+  { path: 'points-system', component: PointsSystemComponent },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./components/user/user.module').then((m) => m.UserModule),
+  },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', redirectTo: '/404' },
+  { path: '404', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
