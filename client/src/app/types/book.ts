@@ -3,9 +3,9 @@ export interface Book {
   condition: string;
   points: string;
   description: string;
-  added: string;
-  wishlist: string;
-  ordered: string;
+  added: Date;
+  wishlist: string[];
+  ordered: number;
   pages: string;
   author: string;
   image: string;
