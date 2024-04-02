@@ -22,3 +22,8 @@
 .btn-theme:hover {
   background-color: var(--dark-color);
 }
+
+.img-preview {
+  height: 150px;
+  width: auto;
+}

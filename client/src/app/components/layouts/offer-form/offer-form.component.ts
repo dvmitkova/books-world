@@ -9,6 +9,9 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./offer-form.component.css'],
 })
 export class OfferFormComponent implements OnInit {
+  imgSrc: any = '.././assets/img/placeholder-image.avif';
+  selectedImg: any;
+
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {}
@@ -28,11 +31,20 @@ export class OfferFormComponent implements OnInit {
       ordered: formData.value.ordered,
       pages: formData.value.pages,
       author: formData.value.author,
-  image: formData.value.image,
+      image: formData.value.image,
     };
 
     this.booksService.saveData(bookOfferData);
 
     formData.reset();
+  }
+
+  showPreview($event: any) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imgSrc = e.target?.result;
+    };
+    reader.readAsDataURL($event.target.files[0]);
+    this.selectedImg = $event.target.files[0];//to access the file
   }
 }
