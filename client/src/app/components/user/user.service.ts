@@ -2,25 +2,38 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  isLogggedIn = false;
+  loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isLoggedInGuard: boolean = false;
 
-  constructor(private afs: AngularFireAuth, private toastr: ToastrService, private router: Router) {}
+  constructor(
+    private afs: AngularFireAuth,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   login(email: string, password: string) {
-    this.afs.signInWithEmailAndPassword(email, password).then((logRef) => {
-      this.toastr.success('Logged in successfully');
-    }).catch(e => {
-      this.toastr.warning(e);
-    })
+    this.afs
+      .signInWithEmailAndPassword(email, password)
+      .then((logRef) => {
+        this.toastr.success('Logged in successfully');
+        this.loadUser();
+        this.loggedIn.next(true);
+        this.isLoggedInGuard = true;
+        this.router.navigate(['/']);
+      })
+      .catch((e) => {
+        this.toastr.warning(e);
+      });
   }
 
   loadUser() {
-    this.afs.authState.subscribe(user => {
+    this.afs.authState.subscribe((user) => {
       localStorage.setItem('user', JSON.stringify(user));
     });
   }
@@ -30,11 +43,19 @@ export class UserService {
 
     return this.afs.createUserWithEmailAndPassword(user.email, user.password);
   }
-  
+
   logout() {
     this.afs.signOut().then(() => {
       this.toastr.success('User logged out successfully');
-      this.router.navigate(['/auth/login'])
-    })
+      localStorage.removeItem('user');
+      this.loggedIn.next(false);
+      this.isLoggedInGuard = false;
+
+      this.router.navigate(['/auth/login']);
+    });
+  }
+
+  isLoggedIn() {
+    return this.loggedIn.asObservable();
   }
 }

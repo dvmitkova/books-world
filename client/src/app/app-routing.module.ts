@@ -10,13 +10,14 @@ import { SingleBookSectionComponent } from './components/pages/single-book/singl
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { PointsSystemComponent } from './components/pages/points-system/points-system.component';
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'home', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'book/:id', component: SingleBookSectionComponent },
-  { path: 'offer-book', component: OfferBookComponent },
+  { path: 'offer-book', component: OfferBookComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutUsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'delivery', component: DeliveryComponent },
