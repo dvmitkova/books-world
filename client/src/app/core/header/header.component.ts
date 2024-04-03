@@ -8,21 +8,28 @@ import { UserService } from 'src/app/components/user/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  userEmail!: string;
-  isLoggedIn$!: Observable<boolean>
+  userEmail: string = '';
+  isLoggedIn$!: Observable<boolean>;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      const user = JSON.parse(userData);
-      if (user && user.email) {
-        this.userEmail = user.email;
-      }
-    }
     this.isLoggedIn$ = this.userService.isLoggedIn();
+    this.isLoggedIn$.subscribe((isLoggedIn) => {
+      if (isLoggedIn) {
+        const userData = localStorage.getItem('user');
+        if (userData) {
+          const user = JSON.parse(userData);
+          if (user && user.email) {
+            this.userEmail = user.email;
+          }
+        }
+      } else {
+        this.userEmail = '';
+      }
+    });
   }
+
   onLogout() {
     this.userService.logout();
   }
