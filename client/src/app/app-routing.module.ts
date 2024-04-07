@@ -27,6 +27,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./components/user/user.module').then((m) => m.UserModule),
   },
+  
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: '/404' },
   { path: '404', component: NotFoundComponent },

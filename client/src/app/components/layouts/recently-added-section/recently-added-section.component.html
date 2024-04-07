@@ -8,7 +8,7 @@
       />
       <div class="content mt-3">
         <h5 class="name">{{ book?.data.name }}</h5>
-        <h6 class="date">Added: {{ book?.data.added }}</h6>
+        <h6 class="date">Added: {{ book.data.added | date }}</h6>
         <small class="text-danger">Condition: {{ book?.data.condition }}</small>
         <div class="mt-3 mb-3">
           {{ book?.data.description | slice : 200 }}

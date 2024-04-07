@@ -39,7 +39,6 @@ export class UserService {
   }
 
   register(user: { email: string; password: string }) {
-    console.log(user);
 
     return this.afs.createUserWithEmailAndPassword(user.email, user.password);
   }

@@ -1,9 +1,11 @@
+import { Timestamp } from "rxjs";
+
 export interface Book {
   name: string;
   condition: string;
   points: string;
   description: string;
-  added: Date;
+  added: string;
   wishlist: string[];
   ordered: number;
   pages: string;

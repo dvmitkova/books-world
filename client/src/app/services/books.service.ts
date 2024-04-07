@@ -16,7 +16,6 @@ export class BooksService {
         .collection('books')
         .add(data)
         .then((docRef) => {
-          console.log(docRef.id);
           this.toastr.success('Book added!');
           resolve(docRef.id); // Resolve with the new book ID
         })
@@ -66,8 +65,6 @@ export class BooksService {
   }
 
   updateData(bookId: string, bookData: any): Promise<void> {
-    console.log(bookId, bookData);
-
     return new Promise((resolve, reject) => {
       this.afs
         .collection('books')

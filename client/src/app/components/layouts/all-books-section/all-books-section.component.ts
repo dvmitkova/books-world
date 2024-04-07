@@ -17,7 +17,6 @@ export class AllBooksSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.booksService.loadData().subscribe((data: any[]) => {
-      console.log(data);
       this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
     });
   }
