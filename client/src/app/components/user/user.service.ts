@@ -31,10 +31,13 @@ export class UserService {
   }
 
   login(email: string, password: string) {
+    
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((logRef) => {
         this.toastr.success('Logged in successfully');
+        console.log(logRef);
+        
         this.loadUser();
         this.loggedIn.next(true);
         this.isLoggedInGuard = true;
