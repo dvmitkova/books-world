@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'catalog', component: CatalogComponent },
   { path: 'book/:id', component: SingleBookSectionComponent },
-  { path: 'offer-book', component: OfferBookComponent, canActivate: [AuthGuard] },
+  { path: 'offer-book', component: OfferBookComponent, canActivateChild: [AuthGuard] },
   { path: 'about', component: AboutUsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'delivery', component: DeliveryComponent },
