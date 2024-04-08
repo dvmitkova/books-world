@@ -29,7 +29,7 @@
           <p>{{ book?.data.description | slice : 200 }}</p>
 
           <small class="text-center ml-3">
-            Added: {{ book?.data.added }}
+            Added: {{ book?.data.added.toDate() | date: 'dd/MM/yyyy'  }}
           </small>
         </div>
       </div>
