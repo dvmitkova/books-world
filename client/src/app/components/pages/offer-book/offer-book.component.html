@@ -1,5 +1,17 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
+    <app-offer-form></app-offer-form>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row" *ngIf="!isLoggedIn">
+    <p>Please log in to access this page.</p>
+    <button routerLink="/auth/login">Log In</button>
+  </div>
+  <div class="row" *ngIf="isLoggedIn">
+    <!-- Content for authenticated users -->
     <app-offer-form></app-offer-form>
   </div>
 </div>
