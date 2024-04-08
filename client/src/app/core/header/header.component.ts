@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const userString = localStorage.getItem('user');
 
     // if (userString !== null) {
     //   const user = JSON.parse(userString);
