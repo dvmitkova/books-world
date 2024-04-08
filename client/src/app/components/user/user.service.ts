@@ -36,8 +36,6 @@ export class UserService {
       .signInWithEmailAndPassword(email, password)
       .then((logRef) => {
         this.toastr.success('Logged in successfully');
-        console.log(logRef);
-        
         this.loadUser();
         this.loggedIn.next(true);
         this.isLoggedInGuard = true;
@@ -65,8 +63,8 @@ export class UserService {
       .createUserWithEmailAndPassword(email, password)
       .then((logRef) => {
         this.toastr.success('You were successfully registered');
-        console.log(logRef);
-        
+        this.loggedIn.next(false);
+        this.isLoggedInGuard = false;
         this.router.navigate(['/auth/login']);
       })
       .catch(e => {

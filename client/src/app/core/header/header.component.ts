@@ -29,8 +29,6 @@ export class HeaderComponent implements OnInit {
         this.userEmail = '';
       }
     });
-
-
   }
 
   onLogout() {
