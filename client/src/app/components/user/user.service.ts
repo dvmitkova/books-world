@@ -15,7 +15,20 @@ export class UserService {
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private router: Router
-  ) {}
+  ) {
+      // Listen for changes to the authentication state
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          // User is logged in
+          this.loggedIn.next(true);
+          this.isLoggedInGuard = true;
+        } else {
+          // User is logged out
+          this.loggedIn.next(false);
+          this.isLoggedInGuard = false;
+        }
+      });
+  }
 
   login(email: string, password: string) {
     this.afAuth
@@ -34,7 +47,12 @@ export class UserService {
 
   loadUser() {
     this.afAuth.authState.subscribe(user => {
-      localStorage.setItem('user', JSON.stringify(user));
+      if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        // Clear user data from local storage if user is null
+        localStorage.removeItem('user');
+      }
     });
   }
 
