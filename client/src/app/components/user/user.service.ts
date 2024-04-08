@@ -12,13 +12,13 @@ export class UserService {
   isLoggedInGuard: boolean = false;
 
   constructor(
-    private afs: AngularFireAuth,
+    private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private router: Router
   ) {}
 
   login(email: string, password: string) {
-    this.afs
+    this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((logRef) => {
         this.toastr.success('Logged in successfully');
@@ -27,24 +27,24 @@ export class UserService {
         this.isLoggedInGuard = true;
         this.router.navigate(['/']);
       })
-      .catch((e) => {
+      .catch(e => {
         this.toastr.warning(e);
       });
   }
 
   loadUser() {
-    this.afs.authState.subscribe((user) => {
+    this.afAuth.authState.subscribe(user => {
       localStorage.setItem('user', JSON.stringify(user));
     });
   }
 
   register(user: { email: string; password: string }) {
 
-    return this.afs.createUserWithEmailAndPassword(user.email, user.password);
+    return this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
   }
 
   logout() {
-    this.afs.signOut().then(() => {
+    this.afAuth.signOut().then(() => {
       this.toastr.success('User logged out successfully');
       localStorage.removeItem('user');
       this.loggedIn.next(false);

@@ -14,6 +14,19 @@ export class HeaderComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    const userString = localStorage.getItem('user');
+
+    // if (userString !== null) {
+    //   const user = JSON.parse(userString);
+    //   this.userEmail = user.email;
+    // } else {
+    //   console.log('Error');
+    // }
+
+    // this.isLoggedIn$ = this.userService.isLoggedIn();
+
+    
+    //guard
     this.isLoggedIn$ = this.userService.isLoggedIn();
     this.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
@@ -28,6 +41,8 @@ export class HeaderComponent implements OnInit {
         this.userEmail = '';
       }
     });
+
+
   }
 
   onLogout() {

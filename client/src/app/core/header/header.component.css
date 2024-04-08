@@ -33,3 +33,8 @@ header {
 .btn-theme:hover {
   background-color: var(--dark-color);
 }
+
+.hello-msg {
+  color: var(--body-text-color);
+
+}
