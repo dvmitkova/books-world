@@ -59,9 +59,21 @@ export class UserService {
     });
   }
 
-  register(user: { email: string; password: string }) {
+  register(email: string, password: string) {
 
-    return this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
+    this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((logRef) => {
+        this.toastr.success('You were successfully registered');
+        console.log(logRef);
+        
+        this.router.navigate(['/auth/login']);
+      })
+      .catch(e => {
+        this.toastr.warning(e);
+      });
+
+    // return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
   logout() {
