@@ -8,29 +8,81 @@
             <h3 class="text-theme-primary">Register</h3>
             <p>Fill this form to register</p>
           </div>
-          <form>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                name="email"
+                #Email="ngModel"
+                ngModel
+                required
+                email
+                [ngClass]="{ 'is-invalid': Email.touched && Email.invalid }"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="Email.touched && Email.invalid"
+              >
+                <div *ngIf="Email.errors?.['required']">
+                  Email must be filled
+                </div>
+                <div *ngIf="Email.errors?.['email']">
+                  Please enter a valid email address
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <input
                 type="password"
                 class="form-control"
-                placeholder="Password"
+                placeholder="******"
+                name="password"
+                #Password="ngModel"
+                ngModel
+                required
+                [ngClass]="{
+                  'is-invalid': Password.touched && Password.invalid
+                }"
               />
+              <div
+                class="alert alert-danger"
+                *ngIf="Password.touched && Password.invalid"
+              >
+                Password must be filled
+              </div>
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
               <input
-                type="rePassword"
+                type="password"
                 class="form-control"
-                placeholder="Repassword"
+                placeholder="******"
+                name="rePassword"
+                #rePassword="ngModel"
+                ngModel
+                required
+                [ngClass]="{
+                  'is-invalid': rePassword.touched && rePassword.invalid
+                }"
               />
+              <div
+                class="alert alert-danger"
+                *ngIf="rePassword.touched && rePassword.invalid"
+              >
+                rePassword must be filled
+              </div>
             </div>
             <div class="btn-container">
-              <button class="btn btn-theme shadow-effect mt-3">Register</button>
+              <button
+                class="btn btn-theme shadow-effect mt-3"
+                [disabled]="registerForm.invalid"
+              >
+                Register
+              </button>
             </div>
             <p class="text-center mt-3">
-              Already have an account?
+              You already have an account?
               <a class="smth" routerLink="/auth/login">Login</a>
             </p>
           </form>
