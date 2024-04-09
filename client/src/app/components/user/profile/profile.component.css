@@ -10,3 +10,9 @@
 .card-body{
     color: var(--body-text-color);
 }
+
+a.smth {
+    color: var(--body-text-color);
+  }
+  
+  
