@@ -10,7 +10,7 @@ import { Book } from 'src/app/types/book';
 })
 export class SingleBookSectionComponent implements OnInit {
   bookId!: string | null;
-  book!: Book;
+  book!: Book | undefined;
 
   constructor(
     private route: ActivatedRoute,

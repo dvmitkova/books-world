@@ -41,6 +41,7 @@ import { OfferBookComponent } from './components/pages/offer-book/offer-book.com
 import { UserService } from './components/user/user.service';
 import { RecentlyAddedBooksComponent } from './components/layouts/recently-added-books/recently-added-books.component';
 import { CommentFormComponent } from './components/layouts/comment-form/comment-form.component';
+import { CommentsSectionComponent } from './components/layouts/comments-section/comments-section.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { CommentFormComponent } from './components/layouts/comment-form/comment-
     SlicePipe,
     RecentlyAddedBooksComponent,
     CommentFormComponent,
+    CommentsSectionComponent,
   ],
   imports: [
     BrowserModule,

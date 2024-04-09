@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../user/user.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comment-form',
@@ -12,12 +13,14 @@ import { ToastrService } from 'ngx-toastr';
 export class CommentFormComponent implements OnInit {
   commentForm!: FormGroup; // Declare commentForm property of type FormGroup
   isLoggedIn: boolean = false; // Flag to determine if the user is logged in
+  bookId: string | null = null; // Property to store the book ID
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private afs: AngularFirestore,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +28,11 @@ export class CommentFormComponent implements OnInit {
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
     });
+
+    this.route.paramMap.subscribe(params => {
+      this.bookId = params.get('id');
+    });
+
     // Initialize commentForm with FormBuilder
     this.commentForm = this.formBuilder.group({
       name: ['', Validators.required], // Add name form control with required validator
@@ -39,6 +47,8 @@ export class CommentFormComponent implements OnInit {
 
     const commentData = this.commentForm.value;
     // Add additional data if needed, such as book ID or timestamp
+
+    commentData['bookId'] = this.bookId;
 
     // Add the comment data to the 'comments' collection in Firebase
     this.afs

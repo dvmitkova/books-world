@@ -1,4 +1,5 @@
 export interface Comment {
-    name: string;
-    comment: string;
-  }
+  bookId: string;
+  name: string;
+  comment: string;
+}
