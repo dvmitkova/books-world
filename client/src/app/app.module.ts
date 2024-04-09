@@ -40,6 +40,7 @@ import { PointsSystemComponent } from './components/pages/points-system/points-s
 import { OfferBookComponent } from './components/pages/offer-book/offer-book.component';
 import { UserService } from './components/user/user.service';
 import { RecentlyAddedBooksComponent } from './components/layouts/recently-added-books/recently-added-books.component';
+import { CommentFormComponent } from './components/layouts/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RecentlyAddedBooksComponent } from './components/layouts/recently-added
     OfferBookComponent,
     SlicePipe,
     RecentlyAddedBooksComponent,
+    CommentFormComponent,
   ],
   imports: [
     BrowserModule,
