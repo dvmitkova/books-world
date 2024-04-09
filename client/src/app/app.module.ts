@@ -4,10 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OverlayModule } from '@angular/cdk/overlay'
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon'
 
 import { environment } from 'src/environments/environment.prod';
 
@@ -66,6 +69,9 @@ import { UserService } from './components/user/user.service';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    OverlayModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

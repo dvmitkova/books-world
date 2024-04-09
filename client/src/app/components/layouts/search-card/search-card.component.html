@@ -1,8 +1,23 @@
-<div class="container mt-4 mb-3 pt-5">
+<div
+  class="container mt-4 mb-3 pt-5"
+  cdkOverlayOrigin
+  #overlayPosition="cdkOverlayOrigin"
+>
   <div class="row justify-content-center">
     <div class="search-card">
-      <input type="text" placeholder="Search books..." />
-      <button>Search</button>
+      <input type="text" placeholder="Search books..." (click)="overlayOpen.set(true)" />
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
     </div>
   </div>
 </div>
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="overlayPosition"
+  [cdkConnectedOverlayOpen]="overlayOpen()"
+>
+Hello
+
+</ng-template>
