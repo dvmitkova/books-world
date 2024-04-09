@@ -1,6 +1,6 @@
 <div class="offer-box mt-5 mb-3 shadow-effect" *ngFor="let book of booksArray">
     <div class="offer-body ml-custom">
-      <div class="book-details">
+      <div class="book-details" (click)="viewBookDetails(book.id)">
         <img
           src="{{ book?.data.image }}"
           alt="Book Image"
