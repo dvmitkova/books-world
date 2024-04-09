@@ -9,8 +9,11 @@ import { OverlayModule } from '@angular/cdk/overlay'
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { environment } from 'src/environments/environment.prod';
 
@@ -72,6 +75,8 @@ import { UserService } from './components/user/user.service';
     MatToolbarModule,
     MatIconModule,
     OverlayModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
