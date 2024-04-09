@@ -1,0 +1,51 @@
+.recently-added-section {
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 130px;
+  }
+  .text {
+    color: var(--body-text-color);
+  }
+
+  .container{
+    color: var(--body-text-color);
+}
+
+.card-body{
+  color: var(--body-text-color);
+}
+
+.ml-custom {
+  margin-left: 10px;
+}
+
+.name{
+  font-size: 18px;
+}
+
+.date{
+  font-size: 13px;
+}
+
+.offer-body{
+  color: var(--body-text-color);
+}
+
+.offer-box {
+padding: 15px 30px;
+background-color: rgba(249, 244, 231, 0.945);
+border-radius: 5px;
+}
+
+.book-image {
+  max-width: 200px;
+  max-height: 320px;
+}
+
+.book-details {
+  display: flex;
+}
+
+.book-image {
+  margin-right: 30px;
+}
