@@ -8,7 +8,7 @@
   </div>
 <div class="offer-box mt-5 mb-3 shadow-effect" *ngFor="let book of booksArray">
     <div class="offer-body ml-custom">
-      <div class="book-details" (click)="viewBookDetails(book.id)">
+      <div class="book-details">
         <img
           src="{{ book?.data.image }}"
           alt="Book Image"
@@ -22,10 +22,11 @@
             {{ book?.data.description | slice : 200 }}
           </div>
           <div class="btn-offer mt-3">
-            <button class="btn-theme mt-3">Add to wishlist</button>
-            <button class="btn-theme mt-3 ml-custom">Order</button>
+            <button class="btn-theme mt-3 ml-custom" (click)="viewBookDetails(book.id)">Details</button>
+            <button class="btn-theme mt-3 ml-custom" [disabled]="isWishlistAdded" (click)="addToWishlist()">Add to Wishlist</button>
+            <button class="btn-theme mt-3 ml-custom" [disabled]="isBookOrdered" (click)="addToOrderedBooks()">Order</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
