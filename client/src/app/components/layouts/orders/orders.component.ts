@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class OrdersComponent implements OnInit {
   isLoggedIn: boolean = false;
+  isLoading: boolean = true;
+
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoading = false;
     // Check if the user is logged in
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;

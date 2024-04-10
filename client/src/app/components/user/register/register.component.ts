@@ -16,6 +16,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void { }
   
   onSubmit(formValue: any) {
-    this.userService.register(formValue.email, formValue.password);
+    this.userService.register(formValue.name, formValue.email, formValue.password);
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
@@ -14,7 +15,8 @@ export class UserService {
   constructor(
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private afs: AngularFirestore,
   ) {
       // Listen for changes to the authentication state
       this.afAuth.authState.subscribe(user => {
@@ -82,15 +84,18 @@ export class UserService {
     });
   }
 
-  register(email: string, password: string) {
-
+  register(name: string, email: string, password: string) {
     this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((logRef) => {
-        this.toastr.success('You were successfully registered');
-        this.loggedIn.next(false);
-        this.isLoggedInGuard = false;
-        this.router.navigate(['/auth/login']);
+        return this.afs.collection('users').doc(logRef.user?.uid).set({
+          email: email
+        }).then(() => {
+          this.toastr.success('You were successfully registered');
+          this.loggedIn.next(false);
+          this.isLoggedInGuard = false;
+          this.router.navigate(['/auth/login']);
+        });
       })
       .catch(e => {
         this.toastr.warning(e);

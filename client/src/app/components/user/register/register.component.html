@@ -8,7 +8,29 @@
             <h3 class="text-theme-primary">Register</h3>
             <p>Fill this form to register</p>
           </div>
+          
           <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+            <div class="form-group">
+              <input
+                type="name"
+                class="form-control"
+                placeholder="Name"
+                name="name"
+                #Name="ngModel"
+                ngModel
+                required
+                name
+                [ngClass]="{ 'is-invalid': Name.touched && Name.invalid }"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="Name.touched && Name.invalid"
+              >
+                <div *ngIf="Name.errors?.['required']">
+                  Name must be filled
+                </div>
+              </div>
+            </div>
             <div class="form-group">
               <input
                 type="email"

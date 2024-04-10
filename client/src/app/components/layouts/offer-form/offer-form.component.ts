@@ -213,6 +213,7 @@ export class OfferFormComponent implements OnInit {
           wishlist: [],
           ordered: 0,
           userId: userId || '',
+          id: '',
         };
 
         if (this.formStatus === 'Offer new') {

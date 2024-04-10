@@ -1,0 +1,17 @@
+.container {
+    color: var(--body-text-color);
+    text-align: center;
+  }
+  
+  .card {
+    max-width: 350px;
+    border: 1px;
+    color: var(--body-text-color);
+    background-color: var(--light-color);
+  }
+  
+  .card-img-top {
+    max-width: 350px;
+    max-height: 470px;
+  }
+  

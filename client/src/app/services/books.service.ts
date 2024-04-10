@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UserService } from '../components/user/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BooksService {
-  constructor(private afs: AngularFirestore, private toastr: ToastrService, private router: Router) {}
+  constructor(private afs: AngularFirestore, private toastr: ToastrService, private router: Router, private userService: UserService) {}
 
   saveData(data: {}): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -48,6 +50,31 @@ export class BooksService {
 
   getBookById(bookId: string) {
     return this.afs.collection('books').doc(bookId).valueChanges();
+  }
+
+  addToWishlist(userId: string, bookId: string): Promise<void> {
+    return this.afs.collection(`users/${userId}/wishlist`).doc(bookId).set({}).then(() => {
+      this.toastr.success('Book added to wishlist');
+    }).catch((error) => {
+      console.error('Error adding book to wishlist:', error);
+      this.toastr.error('Failed to add book to wishlist');
+    });
+  }
+  
+
+  getWishlist(userId: string): Observable<any[]> {
+    return this.afs
+      .collection(`users/${userId}/wishlist`)
+      .snapshotChanges()
+      .pipe(
+        map((actions) => {
+          return actions.map((a) => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, data };
+          });
+        })
+      );
   }
 
   onEdit() {

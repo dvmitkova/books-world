@@ -1,1 +1,34 @@
-<p>wishlist works!</p>
+  <div class="bg-theme p-4">
+    <div *ngIf="isLoading">
+      <app-loader></app-loader>
+    </div>
+    <div class="container" *ngIf="!isLoading">
+      <h1>Wishlist</h1>
+      <p *ngIf="wishlist.length === 0">Your wishlist is empty.</p>
+      <div *ngFor="let item of wishlist">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card shadow-effect" (click)="viewBookDetails(item.id)">
+              <img [src]="item?.image" alt="post-image" class="card-img-top" />
+              <div class="card-body">
+                <div class="text-center">
+                  <small>Author: {{ item?.author }}</small>
+                </div>
+                <div class="text-center">
+                  <small class="ml-3">Points: {{ item?.points }}</small>
+                </div>
+                <div class="text-center">
+                  <small class="ml-3">Condition: {{ item?.condition }}</small>
+                </div>
+                <h5 class="mt-1">{{ item?.name }}</h5>
+                <p *ngIf="item?.description">{{ item.description | slice : 200 }}</p>
+                <small class="text-center ml-3">
+                  Added: {{ item?.added.toDate() | date: 'dd/MM/yyyy' }}
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
