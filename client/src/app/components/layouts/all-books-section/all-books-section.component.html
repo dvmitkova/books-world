@@ -10,7 +10,7 @@
 
 <div class="container mt-1">
   <div class="row">
-    <div class="col-md-4 mb-3" *ngFor="let book of booksArray">
+    <div class="col-md-3 col-sm-4 mb-3" *ngFor="let book of booksArray">
       <div class="card shadow-effect" (click)="viewBookDetails(book.id)">
         <img
           src="{{ book?.data.image }}"
@@ -29,7 +29,7 @@
           </div>
 
           <h5 class="mt-1">{{ book?.data.name }}</h5>
-          <p>{{ book?.data.description | slice : 200 }}</p>
+          <p>{{ book?.data.description | slice : 100 }}</p>
 
           <small class="text-center ml-3">
             Added: {{ book?.data.added.toDate() | date: 'dd/MM/yyyy'  }}
