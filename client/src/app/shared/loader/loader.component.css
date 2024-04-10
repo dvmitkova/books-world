@@ -1,6 +1,13 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Adjust this if needed */
+}
+
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #77503a; /* Blue */
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #77503a; 
     border-radius: 50%;
     width: 120px;
     height: 120px;
