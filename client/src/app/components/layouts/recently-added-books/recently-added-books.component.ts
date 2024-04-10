@@ -18,8 +18,9 @@ export class RecentlyAddedBooksComponent implements OnInit {
     this.booksService.loadData().subscribe((data: any[]) => {
       this.booksArray = data.map((item) => ({
         id: item.id,
-        data: item.data as Book,
+        data: item.data as Book, 
       }));
+      this.booksArray.sort((a, b) => b.data.added.toDate().getTime() - a.data.added.toDate().getTime());
       this.isLoading = false;
 
     },
