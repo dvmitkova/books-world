@@ -10,7 +10,7 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./all-books-section.component.css']
 })
 export class AllBooksSectionComponent implements OnInit {
-
+  isLoading: boolean = true;
   booksArray!: any[];
 
   constructor(private booksService: BooksService, private router: Router) {}
@@ -18,7 +18,13 @@ export class AllBooksSectionComponent implements OnInit {
   ngOnInit(): void {
     this.booksService.loadData().subscribe((data: any[]) => {
       this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
-    });
+      this.isLoading = false;
+    },
+    error => {
+      console.error('Error loading data:', error);
+      this.isLoading = false; // Set isLoading to false if there's an error
+    }
+    );
   }
 
   viewBookDetails(bookId: string) {
