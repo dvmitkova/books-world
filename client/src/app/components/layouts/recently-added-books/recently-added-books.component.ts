@@ -9,6 +9,7 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./recently-added-books.component.css'],
 })
 export class RecentlyAddedBooksComponent implements OnInit {
+  isLoading: boolean = true;
   booksArray!: any[];
 
   constructor(private booksService: BooksService, private router: Router) {}
@@ -19,7 +20,14 @@ export class RecentlyAddedBooksComponent implements OnInit {
         id: item.id,
         data: item.data as Book,
       }));
-    });
+      this.isLoading = false;
+
+    },
+    error => {
+      console.error('Error loading data:', error);
+      this.isLoading = false; // Set isLoading to false if there's an error
+    }
+    );
   }
 
   viewBookDetails(bookId: string) {

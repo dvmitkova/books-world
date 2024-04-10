@@ -1,6 +1,9 @@
 
 <div class="bg-theme mt-4">
-  <div class="container">
+  <div *ngIf="isLoading">
+    <app-loader />
+</div>
+  <div class="container" *ngIf="!isLoading">
     <h1>Recently added</h1>
   </div>
 </div>

@@ -9,7 +9,7 @@ import { Book } from 'src/app/types/book';
   styleUrls: ['./recently-added-section.component.css']
 })
 export class RecentlyAddedSectionComponent implements OnInit {
-
+  isLoading: boolean = true;
   booksArray: any[] = [];
 
   constructor(private booksService: BooksService, private router: Router) {}
@@ -21,7 +21,13 @@ export class RecentlyAddedSectionComponent implements OnInit {
       this.booksArray.sort((a, b) => b.data.added.toDate().getTime() - a.data.added.toDate().getTime());
       // Slice the array to get only the first three items
       this.booksArray = this.booksArray.slice(0, 3);
-    });
+      this.isLoading = false;
+    },
+    error => {
+      console.error('Error loading data:', error);
+      this.isLoading = false; // Set isLoading to false if there's an error
+    }
+    );
   }
 
   viewBookDetails(bookId: string) {

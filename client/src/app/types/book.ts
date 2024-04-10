@@ -5,7 +5,7 @@ export interface Book {
   condition: string;
   points: string;
   description: string;
-  added: string;
+  added: any;
   wishlist: string[];
   ordered: number;
   pages: string;

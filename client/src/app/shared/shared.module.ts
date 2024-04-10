@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SlicePipe } from '@angular/common';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
-    ProgressBarComponent
+  
+    LoaderComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
     SlicePipe,
-    ProgressBarComponent
+    LoaderComponent,
   ]
 })
 export class SharedModule { }
