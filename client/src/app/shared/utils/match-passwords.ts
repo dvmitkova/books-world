@@ -9,9 +9,6 @@ export function matchPasswordsValidator(
         const repassFormControl = control.get(repassControlName);
         const areMatching = passFormControl?.value == repassFormControl?.value;
 
-        // console.log({areMatching});
-        
-        
         return areMatching ? null : { matchPasswordsValidator: true };
     }
 }

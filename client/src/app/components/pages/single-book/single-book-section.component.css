@@ -7,8 +7,8 @@
 }
 
 .btn-offer .btn-theme[disabled] {
-  opacity: 0.5; /* Reduce opacity to indicate disabled state */
-  pointer-events: none; /* Disable pointer events */
-  cursor: not-allowed; /* Change cursor to indicate not-allowed */
+  opacity: 0.5; 
+  pointer-events: none;
+  cursor: not-allowed;
 }
 

@@ -25,7 +25,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './components/pages/home/home.component';
-import { AuthComponent } from './auth/auth.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { UserModule } from './components/user/user.module';
 import { CatalogComponent } from './components/pages/catalog/catalog.component';
@@ -46,13 +45,11 @@ import { CommentsSectionComponent } from './components/layouts/comments-section/
 import { MyBooksComponent } from './components/layouts/my-books/my-books.component';
 import { WishlistComponent } from './components/layouts/wishlist/wishlist.component';
 import { OrdersComponent } from './components/layouts/orders/orders.component';
-import { OrderBookComponent } from './components/layouts/order-book/order-book.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthComponent,
     NotFoundComponent,
     CatalogComponent,
     ContactsComponent,
@@ -72,7 +69,6 @@ import { OrderBookComponent } from './components/layouts/order-book/order-book.c
     MyBooksComponent,
     WishlistComponent,
     OrdersComponent,
-    OrderBookComponent,
   ],
   imports: [
     BrowserModule,

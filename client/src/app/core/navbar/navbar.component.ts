@@ -12,7 +12,6 @@ export class NavbarComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit() {
-    // Subscribe to the isLoggedIn observable in the UserService
     this.userService.isLoggedIn().subscribe(loggedIn => {
       this.isLoggedIn = loggedIn;
     });

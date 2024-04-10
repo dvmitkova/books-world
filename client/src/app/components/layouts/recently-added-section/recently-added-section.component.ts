@@ -17,15 +17,13 @@ export class RecentlyAddedSectionComponent implements OnInit {
   ngOnInit(): void {
     this.booksService.loadData().subscribe((data: any[]) => {
       this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
-      // Sort the books array by the added date in descending order
       this.booksArray.sort((a, b) => b.data.added.toDate().getTime() - a.data.added.toDate().getTime());
-      // Slice the array to get only the first three items
       this.booksArray = this.booksArray.slice(0, 3);
       this.isLoading = false;
     },
     error => {
       console.error('Error loading data:', error);
-      this.isLoading = false; // Set isLoading to false if there's an error
+      this.isLoading = false;
     }
     );
   }

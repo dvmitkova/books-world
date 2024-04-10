@@ -15,10 +15,8 @@ export class MyBooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = false;
-    // Check if the user is logged in
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
-      // Redirect to login page if not logged in
       if (!this.isLoggedIn) {
         this.router.navigate(['/auth/login']);
       }

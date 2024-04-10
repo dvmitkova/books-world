@@ -13,10 +13,8 @@ export class ProfileComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    // Check if the user is logged in
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
-      // Redirect to login page if not logged in
       if (!this.isLoggedIn) {
         this.router.navigate(['/auth/login']);
       }

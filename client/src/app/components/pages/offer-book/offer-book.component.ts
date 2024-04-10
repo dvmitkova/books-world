@@ -13,7 +13,6 @@ export class OfferBookComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    // Subscribe to the isLoggedIn Observable from UserService
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
 

@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./comment-form.component.css'],
 })
 export class CommentFormComponent implements OnInit {
-  commentForm!: FormGroup; // Declare commentForm property of type FormGroup
-  isLoggedIn: boolean = false; // Flag to determine if the user is logged in
-  bookId: string | null = null; // Property to store the book ID
+  commentForm!: FormGroup;
+  isLoggedIn: boolean = false; 
+  bookId: string | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,7 +24,7 @@ export class CommentFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Subscribe to the isLoggedIn observable in the UserService
+   
     this.userService.isLoggedIn().subscribe((loggedIn) => {
       this.isLoggedIn = loggedIn;
     });
@@ -33,10 +33,10 @@ export class CommentFormComponent implements OnInit {
       this.bookId = params.get('id');
     });
 
-    // Initialize commentForm with FormBuilder
+   
     this.commentForm = this.formBuilder.group({
-      name: ['', Validators.required], // Add name form control with required validator
-      comment: ['', Validators.required], // Add comment form control with required validator
+      name: ['', Validators.required], 
+      comment: ['', Validators.required], 
     });
   }
 
@@ -46,17 +46,15 @@ export class CommentFormComponent implements OnInit {
     }
 
     const commentData = this.commentForm.value;
-    // Add additional data if needed, such as book ID or timestamp
 
     commentData['bookId'] = this.bookId;
 
-    // Add the comment data to the 'comments' collection in Firebase
     this.afs
       .collection('comments')
       .add(commentData)
       .then(() => {
         this.toastr.success('Comment added successfully');
-        this.commentForm.reset(); // Reset the form after successful submission
+        this.commentForm.reset();
       })
       .catch((error) => {
         console.error('Error adding comment: ', error);

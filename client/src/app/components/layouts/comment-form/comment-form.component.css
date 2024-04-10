@@ -35,7 +35,7 @@
   
   .form-group .condition {
     font-size: 13px;
-    font-style: italic; /* Apply italic style to the default option */
-    color: var(--body-text-color); /* Change color */
+    font-style: italic;
+    color: var(--body-text-color);
   }
   

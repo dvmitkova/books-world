@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-comments-section',
@@ -8,8 +7,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./comments-section.component.css']
 })
 export class CommentsSectionComponent implements OnInit {
-  @Input() bookId: string | null = null; // Input property to receive the book ID
-  comments: any[] = []; // Array to store comments
+  @Input() bookId: string | null = null;
+  comments: any[] = [];
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -20,7 +19,6 @@ export class CommentsSectionComponent implements OnInit {
   }
 
   loadComments() {
-    // Fetch comments from Firestore based on the book ID
     this.firestore.collection('comments', ref => ref.where('bookId', '==', this.bookId)).valueChanges()
       .subscribe((comments: any[]) => {
         this.comments = comments;

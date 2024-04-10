@@ -18,14 +18,11 @@ export class UserService {
     private router: Router,
     private afs: AngularFirestore,
   ) {
-      // Listen for changes to the authentication state
       this.afAuth.authState.subscribe(user => {
         if (user) {
-          // User is logged in
           this.loggedIn.next(true);
           this.isLoggedInGuard = true;
         } else {
-          // User is logged out
           this.loggedIn.next(false);
           this.isLoggedInGuard = false;
         }
@@ -36,9 +33,9 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.afAuth.authState.subscribe((user) => {
         if (user) {
-          resolve(user.uid); // Resolve with the user's UID
+          resolve(user.uid); 
         } else {
-          resolve(null); // Resolve with null if no user is logged in
+          resolve(null);
         }
       });
     });
@@ -48,9 +45,9 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.afAuth.authState.subscribe((user) => {
         if (user) {
-          resolve(user.email); // Resolve with the user's email
+          resolve(user.email);
         } else {
-          resolve(null); // Resolve with null if no user is logged in
+          resolve(null);
         }
       });
     });
@@ -78,7 +75,6 @@ export class UserService {
         localStorage.setItem('user', JSON.stringify(user));
         const userEmail = user.email;
       } else {
-        // Clear user data from local storage if user is null
         localStorage.removeItem('user');
       }
     });
@@ -100,8 +96,6 @@ export class UserService {
       .catch(e => {
         this.toastr.warning(e);
       });
-
-    // return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
   logout() {

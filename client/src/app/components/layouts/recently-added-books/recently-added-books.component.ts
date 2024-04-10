@@ -36,7 +36,7 @@ export class RecentlyAddedBooksComponent implements OnInit {
       },
       (error) => {
         console.error('Error loading data:', error);
-        this.isLoading = false; // Set isLoading to false if there's an error
+        this.isLoading = false; 
       }
     );
   }

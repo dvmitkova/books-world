@@ -7,7 +7,7 @@ import { BooksService } from 'src/app/services/books.service';
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.css']
+  styleUrls: ['./wishlist.component.css'],
 })
 export class WishlistComponent implements OnInit {
   isLoggedIn: boolean = false;
@@ -29,53 +29,47 @@ export class WishlistComponent implements OnInit {
       }
     });
 
-        // Fetch wishlist for the current user
-        this.userService.getCurrentUserId()
-        .then(userId => {
-          if (userId) {
-            this.booksService.getWishlist(userId).subscribe((data: any[]) => {
-              this.booksArray = data.map(item => ({ id: item.id, data: item.data as Book }));
+    this.userService
+      .getCurrentUserId()
+      .then((userId) => {
+        if (userId) {
+          this.booksService.getWishlist(userId).subscribe(
+            (data: any[]) => {
+              this.booksArray = data.map((item) => ({
+                id: item.id,
+                data: item.data as Book,
+              }));
               this.isLoading = false;
             },
-            error => {
+            (error) => {
               console.error('Error loading wishlist:', error);
-              this.isLoading = false; // Set isLoading to false if there's an error
-            });
-          }
-        })
-        .catch(error => {
-          console.error('Error getting user ID:', error);
-          this.isLoading = false; // Set isLoading to false if there's an error
-        });
-    }
-
-  // addToWishlist(userId: string, bookId: string): void {
-  //   this.booksService.addToWishlist(userId, bookId).then(() => {
-  //     this.booksService.getWishlist(userId).subscribe((wishlist) => {
-  //       this.wishlist = wishlist;
-  //     });
-  //   });
-  // }
-
-  addToWishlist(bookId: string): void {
-    this.userService.getCurrentUserId()
-      .then(userId => {
-        if (userId) {
-          this.booksService.addToWishlist(userId, bookId)
-            .then(() => {
-              // Wishlist updated successfully
-            })
-            .catch(error => {
-              console.error('Error adding book to wishlist:', error);
-              // Handle error
-            });
-        } else {
-          // User is not logged in, handle accordingly (e.g., show login modal)
+              this.isLoading = false;
+            }
+          );
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error getting user ID:', error);
-        // Handle error
+        this.isLoading = false;
+      });
+  }
+
+  addToWishlist(bookId: string): void {
+    this.userService
+      .getCurrentUserId()
+      .then((userId) => {
+        if (userId) {
+          this.booksService
+            .addToWishlist(userId, bookId)
+            .then(() => {})
+            .catch((error) => {
+              console.error('Error adding book to wishlist:', error);
+            });
+        } else {
+        }
+      })
+      .catch((error) => {
+        console.error('Error getting user ID:', error);
       });
   }
 

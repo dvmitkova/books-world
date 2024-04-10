@@ -1,10 +1,8 @@
 <div class="container align-items-center">
   <div class="row" *ngIf="!isLoggedIn">
-    <!-- Redirect directly to the login page -->
     <button class="btn" [routerLink]="['/auth/login']">Log In</button>
   </div>
   <div class="row" *ngIf="isLoggedIn">
-    <!-- Content for authenticated users -->
     <app-offer-form></app-offer-form>
   </div>
 </div>

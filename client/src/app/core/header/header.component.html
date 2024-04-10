@@ -3,7 +3,7 @@
     <span class="site-logo">Books World</span>
   </div>
   <div class="container justify-content-center" *ngIf="isLoggedIn$ | async">
-    <a href="#" class="hello-msg mr-3">{{ userEmail }}</a>
+    <a href="/" class="hello-msg mr-3">{{ userEmail }}</a>
     <button class="btn btn-theme" (click)="onLogout()">Logout</button>
   </div>
 </header>

@@ -19,11 +19,11 @@ export class BooksService {
         .add(data)
         .then((docRef) => {
           this.toastr.success('Book added!');
-          resolve(docRef.id); // Resolve with the new book ID
+          resolve(docRef.id); 
         })
         .catch((err) => {
           console.log(err);
-          reject(err); // Reject with the error
+          reject(err); 
         });
     });
   }
@@ -111,7 +111,7 @@ export class BooksService {
 
   deleteData(id: string) {
     this.afs
-      .doc(`books/${id}`) // Corrected collection path
+      .doc(`books/${id}`) 
       .delete()
       .then(() => {
         this.toastr.warning('Book Deleted!');
