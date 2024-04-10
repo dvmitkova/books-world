@@ -8,6 +8,7 @@
   color: var(--body-text-color);
   background-color: var(--light-color);
   cursor: pointer;
+  
 }
 
 .card-img-top {
