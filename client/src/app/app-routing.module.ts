@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'contacts', component: ContactsComponent },
   { path: 'delivery', component: DeliveryComponent },
   { path: 'points-system', component: PointsSystemComponent },
+
   {
     path: 'auth',
     loadChildren: () =>

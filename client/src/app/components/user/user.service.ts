@@ -30,6 +30,30 @@ export class UserService {
       });
   }
 
+  getCurrentUserId(): Promise<string | null> {
+    return new Promise((resolve, reject) => {
+      this.afAuth.authState.subscribe((user) => {
+        if (user) {
+          resolve(user.uid); // Resolve with the user's UID
+        } else {
+          resolve(null); // Resolve with null if no user is logged in
+        }
+      });
+    });
+  }
+
+  getCurrentUserEmail(): Promise<string | null> {
+    return new Promise((resolve, reject) => {
+      this.afAuth.authState.subscribe((user) => {
+        if (user) {
+          resolve(user.email); // Resolve with the user's email
+        } else {
+          resolve(null); // Resolve with null if no user is logged in
+        }
+      });
+    });
+  }
+
   login(email: string, password: string) {
     
     this.afAuth
@@ -50,6 +74,7 @@ export class UserService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
+        const userEmail = user.email;
       } else {
         // Clear user data from local storage if user is null
         localStorage.removeItem('user');

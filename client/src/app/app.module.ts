@@ -43,6 +43,9 @@ import { UserService } from './components/user/user.service';
 import { RecentlyAddedBooksComponent } from './components/layouts/recently-added-books/recently-added-books.component';
 import { CommentFormComponent } from './components/layouts/comment-form/comment-form.component';
 import { CommentsSectionComponent } from './components/layouts/comments-section/comments-section.component';
+import { MyBooksComponent } from './components/layouts/my-books/my-books.component';
+import { WishlistComponent } from './components/layouts/wishlist/wishlist.component';
+import { OrdersComponent } from './components/layouts/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { CommentsSectionComponent } from './components/layouts/comments-section/
     RecentlyAddedBooksComponent,
     CommentFormComponent,
     CommentsSectionComponent,
+    MyBooksComponent,
+    WishlistComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

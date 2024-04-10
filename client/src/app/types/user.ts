@@ -1,4 +1,9 @@
+import { Book } from "./book";
+import { Comment } from "./comment";
+
 export interface User {
+    books: Book[];
+    comments: Comment[];
     _id: string;
     username: string;
     email: string;
