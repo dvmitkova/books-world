@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { BooksService } from 'src/app/services/books.service';
 import { Book } from 'src/app/types/book';
 
@@ -11,10 +12,12 @@ import { Book } from 'src/app/types/book';
 export class SingleBookSectionComponent implements OnInit {
   bookId!: string | null;
   book!: Book | undefined;
+  isWishlistAdded: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private booksService: BooksService
+    private booksService: BooksService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +33,13 @@ export class SingleBookSectionComponent implements OnInit {
     this.booksService.getBookById(bookId).subscribe((book: any) => {
       this.book = book;
     });
+  }
+
+  addToWishlist(): void {
+    // Add logic to add book to wishlist
+    // For demonstration purposes, I'm setting isWishlistAdded to true
+    this.isWishlistAdded = true;
+    this.toastr.success('Added to your wishlist');
   }
 
   onDelete(bookId: string) {

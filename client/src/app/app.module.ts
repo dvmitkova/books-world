@@ -46,6 +46,7 @@ import { CommentsSectionComponent } from './components/layouts/comments-section/
 import { MyBooksComponent } from './components/layouts/my-books/my-books.component';
 import { WishlistComponent } from './components/layouts/wishlist/wishlist.component';
 import { OrdersComponent } from './components/layouts/orders/orders.component';
+import { OrderBookComponent } from './components/layouts/order-book/order-book.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { OrdersComponent } from './components/layouts/orders/orders.component';
     MyBooksComponent,
     WishlistComponent,
     OrdersComponent,
+    OrderBookComponent,
   ],
   imports: [
     BrowserModule,

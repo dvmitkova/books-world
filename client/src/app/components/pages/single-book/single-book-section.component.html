@@ -28,7 +28,7 @@
               <div class="card-body">
                 <p>{{ book.description }}</p>
                 <div class="btn-offer mt-3">
-                  <button class="btn-theme mt-3">Add to Wishlist</button>
+                  <button class="btn-theme mt-3" [disabled]="isWishlistAdded" (click)="addToWishlist()">Add to Wishlist</button>
                   <button class="btn-theme mt-3 ml-custom">Order</button>
                   <button
                     class="btn-theme mt-3 ml-custom"
