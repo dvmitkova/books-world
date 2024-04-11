@@ -30,5 +30,6 @@ The application consists of two parts - Public (Accessible without authenticatio
 
 ## Technologies Used
 * Frontend: HTML, CSS, JavaScript, Bootstrap
-* Database: Firebase
+* Database: Firestore Database
 * Framework: Angular
+* Hosting: Firebase
