@@ -8,13 +8,12 @@ import { UserService } from 'src/app/components/user/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  userEmail: string = '';
+  userEmail!: string;
   isLoggedIn$!: Observable<boolean>;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-
     this.isLoggedIn$ = this.userService.isLoggedIn();
     this.isLoggedIn$.subscribe((isLoggedIn) => {
       if (isLoggedIn) {
