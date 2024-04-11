@@ -24,6 +24,7 @@ The application consists of two parts - Public (Accessible without authenticatio
 * Logout button
 
 ## Starting The Application
+### The app can be found deployed here: https://bg-books-world.web.app
 1. Enter the client folder
 2. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
