@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BooksService } from 'src/app/services/books.service';
 import { Book } from 'src/app/types/book';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-single-book-section',
@@ -14,6 +15,7 @@ export class SingleBookSectionComponent implements OnInit {
   book!: Book | undefined;
   isWishlistAdded: boolean = false;
   isBookOrdered: boolean = false;
+  isLoggedIn: boolean = false;
   @Output() addToWishlistEvent = new EventEmitter<Book>();
   @Output() addToOrderedBooksEvent = new EventEmitter<Book>();
 
@@ -21,6 +23,8 @@ export class SingleBookSectionComponent implements OnInit {
     private route: ActivatedRoute,
     private booksService: BooksService,
     private toastr: ToastrService,
+    private userService: UserService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -30,6 +34,11 @@ export class SingleBookSectionComponent implements OnInit {
         this.fetchBookDetails(this.bookId);
       }
     });
+
+    this.userService.isLoggedIn().subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });
+
   }
 
   fetchBookDetails(bookId: string): void {
@@ -55,6 +64,11 @@ export class SingleBookSectionComponent implements OnInit {
   }
 
   onDelete(bookId: string) {
-    this.booksService.deleteData(bookId);
+    if (this.isLoggedIn) {
+      this.booksService.deleteData(bookId);
+    } else {
+      this.toastr.warning('Please log in to delete this book.');
+      this.router.navigate(['/auth/login']);
+    }
   }
 }
